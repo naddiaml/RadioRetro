@@ -1,9 +1,10 @@
 import './Hero.css';
 import heroRadioImg from "./SHARP-FV17000.webp";
-
 import HeroGreeting from '../HeroGreeting/HeroGreeting';
 
-const ctaTienda = "Ir a la tienda";
+import { Link } from 'react-router-dom';
+
+const ctaTienda = "Cotizar";
 
 const Hero = () => {
     return (
@@ -14,10 +15,13 @@ const Hero = () => {
                     <p>Brindando a nuestros clientes ese toque especial de añoranza que están buscando, reparamos tu radio analógica para que puedas disfrutar al máximo el contenido de tu interés.</p>
                     <div className="button-container">
                         <button className="cta" style={{ textTransform: 'uppercase' }} title={ctaTienda}>{ctaTienda}</button>
-                        <span className='hero__span'>SABER MÁS
+                        <span className='hero__span'>
+                            <Link to="/store">
+                            IR A LA TIENDA
                             <span className="material-icons chevron">
                                 chevron_right
                             </span>
+                            </Link>
                         </span>
                     </div>
                 </div>

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 123,
+        "name": "Sharp Intercontinental FV-1700",
+        "image": "https://i.ibb.co/J77NfSd/SHARP-FV17000.webp",
+        "price": "300",
+        "description": "Recorra el mundo con el oído: Este bello receptor de líneas viaja por los siete continentes todas las noches con sus seis bandas; hágalo volar con sus dedos.",
+        "category": "transistorizadas",
+        "stock": 0,
+        "rate": 5
+    },
+    {
+        "id": 456,
+        "name": "Verona 20100",
+        "image": "https://www.lacasadeantiguedades.es/3872-thickbox_default/radio-antigua-de-valvulas-marca-blaupunt-veronaen-excelente-estado.jpg",
+        "price": "250",
+        "description": "¡Descubre la magia del sonido auténtico en Radio Verona 20100! Sumérgete en la experiencia única de esta radio valvular, donde la nostalgia se encuentra con la calidad sonora. Sintoniza la esencia clásica con un toque moderno. ¡La música nunca sonó tan cálida y vibrante!",
+        "category": "valvulares",
+        "stock": 0,
+        "rate": 4
+    },
+    {
+        "id": 789,
+        "name": "Daihatsu DRK7 AM-FM",
+        "image": "https://www.centrogar.com.ar/9545-large_default/radio-daihatsu-d-rk7.jpg",
+        "price": "100",
+        "description": "¡Lleva la música contigo a todas partes con la Radio Portátil Daihatsu DRK7 AM-FM! Diseño compacto, potencia en tus manos. Sintoniza tus estaciones favoritas en cualquier lugar. Experimenta la libertad de la música sin límites. ¡Tu banda sonora personalizada, siempre contigo! ",
+        "category": "portátiles",
+        "stock": 8,
+        "rate": 2
+    }
+]

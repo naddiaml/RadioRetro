@@ -1,0 +1,35 @@
+.controls {
+    width: 70%;
+    margin: 1rem auto .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(173, 173, 173, 0.509);
+    border-radius: .5rem;
+}
+
+.controls button {
+    width: 1.8rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    border: none;
+    color: rgb(235, 235, 235);
+    background-color: rgb(133, 133, 133);
+}
+
+.controls button:hover {
+    color: rgb(86, 86, 86);
+    background-color: rgb(200, 200, 200);
+}
+
+.controls button:first-child {
+    border-radius: .3rem 0 0 .3rem;
+}
+
+.controls button:last-child {
+    border-radius: 0 .3rem .3rem 0;
+}
+
+.controls h4 {
+    font-family: 'Montserrat';
+}

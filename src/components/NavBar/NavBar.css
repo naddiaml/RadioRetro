@@ -19,18 +19,19 @@ li:not(:first-child) {
     margin-left: 1.2rem;
 }
 
-li:hover {
+li a:hover {
     font-weight: 700;
     transition: .2s;
 }
 
-li.current {
+li.current a {
     font-weight: 700;
     color: #AEAEAE;
 }
 
-li,
+li a,
 .header__icons {
+    text-decoration: none;
     color: rgba(0, 0, 0, 0.75);
     cursor: pointer;
 }
