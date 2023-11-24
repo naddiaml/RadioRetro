@@ -29,12 +29,13 @@ const ItemsListContainer = ({ sectionTitle, enableLoadMore, buttonLoadMode, link
             .then((res) => {
                 if (category) {
                     setProducts(res.filter((prod) => prod.category === category));
-                    setTitle(category);
+                    setTitle('Nuestros Productos · Radios ' + category); // Actualizar con la categoría, no con 'title'
                 } else {
                     setProducts(res);
+                    setTitle('Nuestros Productos');
                 }
             })
-    }, [category]);
+    }, [category, title]);
 
     const handleClick = () => {
         if (enableLoadMore && showQuantity < product.length) {
@@ -45,7 +46,7 @@ const ItemsListContainer = ({ sectionTitle, enableLoadMore, buttonLoadMode, link
     return (
         <div className="container-80">
             <section id="products-section">
-                <h2 className="secton-title" style={{ textTransform: 'uppercase' }}>{sectionTitle} · Radios {title}</h2>
+                <h2 className="secton-title" style={{ textTransform: 'uppercase' }}>{title}</h2>
                 <article> Además de reparar radios antiguas, contamos con nuestro propio catálogo de <b>radios reacondicionadas</b> listas para disfrutar! 📻</article>
                 <div className="products-container">
                     {
