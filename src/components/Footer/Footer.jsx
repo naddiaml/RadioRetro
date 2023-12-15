@@ -2,7 +2,8 @@ import React from 'react';
 import './Footer.css';
 import logo from '../Footer/RadioRetro-WLogo.webp';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+// routing adjustments
 
 const Footer = () => {
     return (
@@ -19,13 +20,13 @@ const Footer = () => {
                             <Link to="/store">Tienda</Link>
                         </li>
                         <li>
-                            <Link to="">Transistorizadas</Link>
+                            <Link to="/store/transistorizadas">Transistorizadas</Link>
                         </li>
                         <li>
-                            <Link to="">Valvulares</Link>
+                            <Link to="/store/valvulares">Valvulares</Link>
                         </li>
                         <li>
-                            <Link to="">Portátiles</Link>
+                            <Link to="/store/portátiles">Portátiles</Link>
                         </li>
                     </ul>
                 </div>
