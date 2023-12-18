@@ -2,12 +2,14 @@
     display: none;
 }
 
-.item-detail__navigation, .item-detail__navigation-mobile {
+.item-detail__navigation,
+.item-detail__navigation-mobile {
     width: 80%;
     margin: 0 auto 2rem;
 }
 
-.item-detail__navigation span a, .item-detail__navigation-mobile span a {
+.item-detail__navigation span a,
+.item-detail__navigation-mobile span a {
     text-decoration: none;
     color: rgba(0, 0, 0, .7);
     font-family: 'Montserrat';
@@ -85,9 +87,11 @@ img.product__image {
     display: inline-block
 }
 
-.itemIn-stock {
-    width: 40%;
-    margin-left: 5rem;
+.addToCart__items-container {
+    width: 70%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
 }
 
 .itemOut-of-stock {
@@ -102,10 +106,31 @@ img.product__image {
 }
 
 @media screen and (max-width:1100px) {
+
+    .item-detail__product-description__container {
+        width: 100%;
+    }
+
+    .addToCart__items-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .itemOut-of-stock {
         width: 100%;
         height: 3.8rem;
         font-size: .9rem;
+    }
+
+    .itemOut-of-stock span {
+        font-size: 1.4rem;
+    }
+
+    .itemOut-of-stock p {
+        width: 80%;
+        font-size: .8rem;
     }
 }
 
@@ -117,7 +142,7 @@ img.product__image {
     .item-detail__navigation {
         display: none;
     }
-    
+
     .item-detail {
         flex-direction: column;
         align-items: center;
@@ -145,7 +170,7 @@ img.product__image {
     }
 
     .itemIn-stock {
-        width: 50%;
+        width: 90%;
         margin: auto;
     }
 }

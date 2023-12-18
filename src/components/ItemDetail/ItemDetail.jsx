@@ -76,18 +76,20 @@ const ItemDetail = () => {
             <span><b>Calificación:</b> </span>
             <Rate rating={item.rate} maxRating={5} />
           </div>
-          {isInStock ? (
-            <div className="itemIn-stock">
-              <ItemCount item={item} stock={`${item.stock}`} initial={1} onAdd={1} />
-            </div>
-          ) : (
-            <div className="itemOut-of-stock">
-              <span className="material-icons">
-                error_outline
-              </span>
-              <p>Por el momento, este producto <b>no está disponible</b>.</p>
-            </div>
-          )}
+          <div className="addToCart__items-container">
+            {isInStock ? (
+              <div className="itemIn-stock">
+                <ItemCount item={item} stock={`${item.stock}`} initial={1} onAdd={1} />
+              </div>
+            ) : (
+              <div className="itemOut-of-stock">
+                <span className="material-icons">
+                  error_outline
+                </span>
+                <p>Por el momento, este producto <b>no está disponible</b>.</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div >

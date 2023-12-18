@@ -3,7 +3,8 @@
 }
 
 .product-cta {
-    width: 100%;
+    min-width: 15rem;
+    max-width: 20rem;
     padding: .5rem 1rem;
     margin: 1rem auto .8rem;
     border-radius: 1.2rem;

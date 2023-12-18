@@ -7,9 +7,10 @@ div.container-80 {
 }
 
 h2 {
-    width: fit-content;
+    width: 60%;
     margin: 1rem auto;
     font-size: 1.3rem;
+    text-align: center;
 }
 
 article {
@@ -159,7 +160,7 @@ a.load-more {
     color: #000;
 }
 
-.load-more{
+.load-more {
     width: 15rem;
     padding: .5rem 1.2rem;
     font-weight: 600;
@@ -200,5 +201,9 @@ a.load-more {
         align-items: center;
         width: fit-content;
         margin: auto;
+    }
+
+    article {
+        width: 100%;
     }
 }
