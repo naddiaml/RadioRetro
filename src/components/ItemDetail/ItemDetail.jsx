@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const ItemDetail = () => {
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const { id } = useParams();
   const { category } = item;
 
@@ -23,7 +23,7 @@ const ItemDetail = () => {
     }
   }, [id]);
 
-  const isInStock = item.stock > 0;
+  const isInStock = item.stock !== undefined && item.stock > 0;
 
   return (
     <div className="container">
@@ -79,7 +79,7 @@ const ItemDetail = () => {
           <div className="addToCart__items-container">
             {isInStock ? (
               <div className="itemIn-stock">
-                <ItemCount item={item} stock={`${item.stock}`} initial={1} onAdd={1} />
+                <ItemCount item={item} stock={Number(`${item.stock}`)}/>
               </div>
             ) : (
               <div className="itemOut-of-stock">
