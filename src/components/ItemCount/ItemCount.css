@@ -33,3 +33,11 @@
 .controls h4 {
     font-family: 'Montserrat';
 }
+
+.itemOut-of-stock {
+    padding: 1.5rem;
+}
+
+.itemOut-of-stock span {
+    margin-right: 1rem;
+}

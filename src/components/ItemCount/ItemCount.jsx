@@ -8,11 +8,12 @@ const ItemCount = ({ item, stock }) => {
     const [quantity, setQuantity] = useState(1);
     const [isInStock, setIsInStock] = useState(true);
     const { addToCart } = useContext(CartContext);
+    const { getTotalQuantity } = useContext(CartContext);
     const totalQuantityRef = useRef(0);
 
     useEffect(() => {
-        totalQuantityRef.current = 0;
-    }, [item]);
+        totalQuantityRef.current = getTotalQuantity();
+    }, [getTotalQuantity]);
 
     const increment = () => {
         const maxIncrement = stock - totalQuantityRef.current;
@@ -23,12 +24,7 @@ const ItemCount = ({ item, stock }) => {
         quantity > 1 && setQuantity((prevQuantity) => prevQuantity - 1);
     };
 
-    const handleAddToCart = async () => {
-        if (!item || !item.id) {
-            console.error("Ocurrió un error. Item o Item.id no están definidos.");
-            return;
-        }
-
+    const handleAddToCart = () => {
         const availableQuantity = Math.min(stock - totalQuantityRef.current, quantity);
 
         if (availableQuantity > 0) {
@@ -73,7 +69,7 @@ const ItemCount = ({ item, stock }) => {
 
 ItemCount.propTypes = {
     item: PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
     }).isRequired,
     stock: PropTypes.number.isRequired,
 };

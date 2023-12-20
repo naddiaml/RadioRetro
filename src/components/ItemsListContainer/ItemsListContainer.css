@@ -136,6 +136,11 @@ article {
     margin: .5rem auto 2rem;
 }
 
+.product-card.in-stock>div.counter>div>div.controls,
+.product-card.out-of-stock>div.counter>div>div.controls {
+    display: none;
+}
+
 .chevron {
     font-size: 1rem;
     position: relative;

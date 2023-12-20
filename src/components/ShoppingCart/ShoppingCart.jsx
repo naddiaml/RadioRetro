@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ShoppingCart.css";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
     const { getTotalQuantity } = useContext(CartContext);
+    const [totalQuantity, setTotalQuantity] = useState(0);
 
-    const totalQuantity = getTotalQuantity();
+    useEffect(() => {
+        const quantity = getTotalQuantity();
+        setTotalQuantity(quantity);
+    }, [getTotalQuantity]);
 
     console.log("Total Quantity:", totalQuantity);
 
     return (
         <div>
-            <Link to="/purchase" >
+            <Link to="/purchase">
                 <div className="cart-itemsCounter">
                     <span>{totalQuantity}</span>
                 </div>
