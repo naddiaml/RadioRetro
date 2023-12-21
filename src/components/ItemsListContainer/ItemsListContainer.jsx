@@ -31,7 +31,6 @@ const ItemsListContainer = ({ enableLoadMore, buttonLoadMode, linkTo }) => {
                 productsData.push({ ...doc.data(), id: doc.id });
             });
 
-            console.log("Productos obtenidos:", productsData);
             setProducts(productsData);
         } catch (error) {
             console.error('Error fetching products: ', error);
