@@ -35,10 +35,12 @@ const PurchaseDetail = () => {
                             <li key={item.id} className="cart__item">
                                 <img src={item.image} alt={item.name} />
                                 <div className="cart__product-details">
-                                    <p className="cart__product-name"><b>{item.name}</b></p>
-                                    <p className="cart__product-uprice">Precio por unidad: $ {item.price}</p>
-                                    <p>Cantidad: {item.quantity}</p>
-                                    <p><b>Precio:</b> $ {calculateTotalPrice(item)}</p>
+                                    <div>
+                                        <p className="cart__product-name"><b>{item.name}</b></p>
+                                        <p className="cart__product-uprice">Precio por unidad: $ {item.price}</p>
+                                        <p>Cantidad: {item.quantity}</p>
+                                        <p><b>Precio:</b> $ {calculateTotalPrice(item)}</p>
+                                    </div>
                                     <p className="cart__remove-products" onClick={() => handleRemoveProduct(item.id)}>
                                         <span className="material-icons">
                                             delete
@@ -50,6 +52,11 @@ const PurchaseDetail = () => {
                         ))}
                     </ul>
                     <p className="cart__total-price">Total: <span>$ {calculateTotalCartPrice()}</span></p>
+                    <div className="cart__checkout-button">
+                        <Link to={'/checkout'}>
+                            <button className='button__buy-cart'>Finalizar compra</button>
+                        </Link>
+                    </div>
                 </div>
             )}
         </div>

@@ -1,0 +1,70 @@
+.checkout__items-container,
+.checout__post-purchase {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__container {
+    width: 80%;
+    margin: 1rem auto 0;
+}
+
+form.checkout__form {
+    width: 50%;
+    margin: auto;
+}
+
+form.checkout__form fieldset {
+    border: none;
+    margin: 1rem auto;
+}
+
+form.checkout__form fieldset label:first-of-type {
+    display: block;
+    font-weight: bold;
+}
+
+form.checkout__form fieldset label:first-of-type span.required {
+    color: #d54040;
+}
+
+form.checkout__form fieldset>input[type=text],
+input[type=email] {
+    width: 100%;
+    margin: .8rem 0 .9rem;
+    padding: .8rem .5rem;
+    border: 1px solid #acacac;
+    border-radius: .2rem;
+    outline: none;
+}
+
+form.checkout__form fieldset:last-of-type>label:not(:first-of-type) {
+    display: block;
+    margin-left: 1rem;
+}
+
+form.checkout__form fieldset>label>input[type=radio] {
+    margin-right: .5rem;
+    margin-top: 1rem;
+}
+
+button[type=submit] {
+    width: 30%;
+    margin: 1rem auto;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    border: none;
+    outline: none;
+    background-color: #5daf94;
+    font-weight: 600;
+    color: white;
+    font-size: .9rem;
+}
+
+div.checout__post-purchase img.successful-purchase__img {
+    width: 20rem;
+    margin: 4rem auto 1rem;
+}
