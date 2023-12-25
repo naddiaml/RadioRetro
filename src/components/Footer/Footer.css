@@ -92,7 +92,7 @@ footer {
         margin: .8rem auto .5rem;
     }
 
-    .footer__links-container>ul>li:not(:first-child)>a {
+    .footer__links-container>ul>li:not(:first-child) {
         display: none;
     }
 

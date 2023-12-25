@@ -23,10 +23,13 @@ const PurchaseDetail = () => {
             <h2>TU CARRITO</h2>
             {cart.length === 0 ? (
                 <div className="empty-cart__items-container">
-                    <img src="src\components\PurchaseDetail\emptyCart.svg" alt="El carrito está vacío." className="empty_cart__img" />
+                    <img src="assets\emptyCart.svg" alt="El carrito está vacío." className="empty_cart__img" />
                     <p className="empty-cart__p">En este momento, <b>no hay productos en tu carrito.</b></p>
-                    <p className="empty-cart__p">Haz click <Link to="/store">aquí</Link> para visitar nuestra tienda y agregar los productos de tu interés a tu carrito.
-                    </p>
+                    <button className="store-button">
+                        <Link to={"/store"}>
+                            VOLVER A LA TIENDA
+                        </Link>
+                    </button>
                 </div>
             ) : (
                 <div>

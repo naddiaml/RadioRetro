@@ -64,24 +64,45 @@ const ItemsListContainer = ({ enableLoadMore, buttonLoadMode, linkTo }) => {
                     {products.length > 0 &&
                         products.slice(0, showQuantity).map((product) => {
                             const isInStock = product.stock > 0;
+
                             return (
                                 <div className={`product-card ${isInStock ? "in-stock" : "out-of-stock"}`} title={product.name} key={product.id}>
                                     <div className="product-card__img-container">
-                                        <img src={product.image} alt={product.name} title={product.name} className="product-card__image" />
-                                        {isInStock ? null : (
-                                            <div className="out-of-stock-overlay">
-                                                SIN STOCK
-                                            </div>
-                                        )}
+                                        <div className="product-card__image-overlay">
+                                            {!isInStock && (
+                                                // Estructura cuando no hay existencias (stock) del producto
+                                                <div className="out-of-stock-overlay">
+                                                    SIN STOCK
+                                                </div>
+                                            )}
+                                            <img src={product.image} alt={product.name} title={product.name} className="product-card__image" />
+                                        </div>
                                     </div>
-                                    <span className="product-card__name">
-                                        <b>{product.name.length > 23 ? product.name.slice(0, 25) + '...' : product.name}</b>
-                                    </span>
-                                    <span className="product-card__price">
-                                        <span className="d-sign">$</span>
-                                        <b>{product.price}</b>
-                                    </span>
-                                    <ItemCount item={product} stock={product.stock} />
+                                    {!isInStock && (
+                                        // Estructura adicional cuando no hay existencias (stock) del producto
+                                        <>
+                                            <span className="product-card__name">
+                                                <b>{product.name.length > 23 ? product.name.slice(0, 25) + '...' : product.name}</b>
+                                            </span>
+                                            <span className="product-card__price">
+                                                <span className="d-sign">$</span>
+                                                <b>{product.price}</b>
+                                            </span>
+                                        </>
+                                    )}
+                                    {isInStock && (
+                                        // Estructura cuando hay existencias (stock) del producto
+                                        <>
+                                            <span className="product-card__name">
+                                                <b>{product.name.length > 23 ? product.name.slice(0, 25) + '...' : product.name}</b>
+                                            </span>
+                                            <span className="product-card__price">
+                                                <span className="d-sign">$</span>
+                                                <b>{product.price}</b>
+                                            </span>
+                                            <ItemCount item={product} stock={product.stock} />
+                                        </>
+                                    )}
                                     <span className='product-card__details' title="Ver más detalles de este producto 👀">
                                         <Link to={`/products/${product.id}`}>
                                             MÁS DETALLES
@@ -93,19 +114,15 @@ const ItemsListContainer = ({ enableLoadMore, buttonLoadMode, linkTo }) => {
                                 </div>
                             );
                         })}
+
                 </div>
                 <div className="load-more__container">
-                    <Link to={linkTo}>
-                        <button
-                            className={`load-more ${enableLoadMore && showQuantity >= products.length ? 'no-more-elements' : ''} ${enableLoadMore ? "enabled" : "disabled"}`}
-                            onClick={handleClick}
-                        >
-                            {buttonLoadMode}
-                        </button>
+                    <Link to={linkTo} className={`load-more ${enableLoadMore && showQuantity >= products.length ? 'no-more-elements' : ''} ${enableLoadMore ? "enabled" : "disabled"}`}
+                        onClick={handleClick}>{buttonLoadMode}
                     </Link>
                 </div>
-            </section >
-        </div >
+            </section>
+        </div>
     );
 };
 

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import '../ItemDetail/ItemDetail.css';
 import Rate from "../Rate/Rate.jsx";
 import ItemCount from "../ItemCount/ItemCount.jsx";
-import data from '../../data/products.json';
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config.js';
 
 const ItemDetail = () => {
   const [item, setItem] = useState({});
@@ -12,15 +13,22 @@ const ItemDetail = () => {
   const { category } = item;
 
   useEffect(() => {
-    const findItemById = (productId) => {
-      return data.find((product) => product.id === productId);
+    const fetchItemById = async () => {
+      try {
+        const itemDocRef = doc(db, 'products', id);
+        const itemDocSnapshot = await getDoc(itemDocRef);
+
+        if (itemDocSnapshot.exists()) {
+          setItem({ ...itemDocSnapshot.data(), id: itemDocSnapshot.id });
+        } else {
+          console.error("El producto no fue encontrado");
+        }
+      } catch (error) {
+        console.error("Error al obtener el producto:", error);
+      }
     };
 
-    const selectedItem = findItemById(Number(id));
-
-    if (selectedItem) {
-      setItem(selectedItem);
-    }
+    fetchItemById();
   }, [id]);
 
   const isInStock = item.stock !== undefined && item.stock > 0;
@@ -47,7 +55,7 @@ const ItemDetail = () => {
           </span>
         )}
         <span>
-          <Link to={`/products/${item.id}`}>
+          <Link to={`/products/${item.id}`} className="current-item">
             {item.name}
           </Link>
         </span>
@@ -69,7 +77,6 @@ const ItemDetail = () => {
           <span className="item-detail__product-name">{item.name}</span>
           <span className="item-detail__product-price">$ {item.price}</span>
           <div className="item-detail__product-description__container">
-            <span className="product-description__label"><b>Descripción del producto:</b></span>
             <p className="item-detail__product-description">{item.description}</p>
           </div>
           <div className="item-detail__product-rate-container">
@@ -79,7 +86,7 @@ const ItemDetail = () => {
           <div className="addToCart__items-container">
             {isInStock ? (
               <div className="itemIn-stock">
-                <ItemCount item={item} stock={Number(`${item.stock}`)}/>
+                <ItemCount item={item} stock={Number(`${item.stock}`)} />
               </div>
             ) : (
               <div className="itemOut-of-stock">
@@ -92,7 +99,7 @@ const ItemDetail = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

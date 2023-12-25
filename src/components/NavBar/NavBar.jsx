@@ -50,9 +50,6 @@ const NavBar = () => {
                         <li className="link">
                             <ShoppingCart />
                         </li>
-                        <li className="link">
-                            <span className="material-icons header__icons" title="Buscar"> search</span>
-                        </li>
                     </div>
                 </ul>
                 <div className="icons-container">

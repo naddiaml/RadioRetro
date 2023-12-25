@@ -14,7 +14,7 @@ const AddToCartButton = ({ stock, handleAddToCart }) => {
     return (
         <div className={`product-cta__container ${isInStock ? 'enable-addToCart' : 'disable-addToCart'}`}>
             <button className="product-cta" title="Agrega este producto a tu carrito" onClick={handleClick}>
-                <span className="material-icons">add_circle</span>
+                <span className="material-icons">shopping_cart</span>
                 <span className="add-to-cart">AGREGAR AL CARRITO</span>
             </button>
         </div>

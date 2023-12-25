@@ -30,13 +30,12 @@ article {
 .product-card {
     width: 18rem;
     height: 20.5rem;
-    border-radius: .4rem;
+    border-radius: .2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgba(115, 115, 115, 0.1);
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     margin: auto;
     position: relative;
     overflow: hidden;
@@ -105,18 +104,6 @@ article {
     font-family: 'Montserrat';
 }
 
-.load-more {
-    border: 1.5px solid rgb(133, 133, 133);
-    color: rgb(235, 235, 235);
-    background-color: rgb(133, 133, 133);
-}
-
-.load-more:hover {
-    border: 1.5px solid rgba(79, 79, 79, .7);
-    color: rgb(86, 86, 86);
-    background-color: rgb(200, 200, 200);
-}
-
 .product-card__details {
     cursor: pointer;
 }
@@ -162,41 +149,65 @@ article {
 
 a.load-more {
     text-decoration: none;
-    color: #000;
-}
-
-.load-more {
-    width: 15rem;
+    color: #373737c6;
+    text-align: center;
     padding: .5rem 1.2rem;
-    font-weight: 600;
-    border-radius: 1rem;
+    font-weight: 400;
+    border-radius: .2rem;
     font-size: .9rem;
     cursor: pointer;
-    transition: .3s;
+    transition: .5s;
+    width: 14.5rem;
 }
 
 .load-more:hover {
-    width: 17rem;
+    color: #373737;
+    background-color: #d1d1d180;
 }
 
 .load-more.enabled:hover::after {
     content: '↓';
-    margin-left: 1rem;
+    font-size: .8rem;
+    margin-left: .8rem;
 }
 
 .load-more.disabled:hover::after {
     content: '→';
-    margin-left: 1rem;
+    font-size: .8rem;
+    margin-left: .8rem;
 }
 
 .load-more.no-more-elements {
     display: none;
 }
 
+/* Productos sin stock desde este componente */
+.product-card.in-stock>.counter>.itemOut-of-stock span {
+    display: none;
+}
+
+.product-card.in-stock>.counter>.itemOut-of-stock {
+    background-color: transparent;
+    font-style: italic;
+    color: #373737c5;
+    height: 3.2rem;
+    margin: .1rem;
+    padding: 0;
+    font-size: .8rem;
+}
+
 @media screen and (max-width:1100px) {
     .products-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .product-card.in-stock>.counter>.itemOut-of-stock {
+        width: 80%;
+        margin: auto;
+        text-align: center
+    }
+
+    ;
 }
 
 @media screen and (max-width:950px) {

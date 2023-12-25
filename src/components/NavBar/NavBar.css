@@ -12,16 +12,16 @@ li {
     display: inline-block;
     font-size: .8rem;
     letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 li:not(:first-child) {
-    margin-left: 1.2rem;
+    margin-left: 2rem;
 }
 
 li a:hover {
     font-weight: 700;
-    transition: .2s;
+    color: #838383;
 }
 
 li.current a {
@@ -147,6 +147,7 @@ input#burger {
     .header-menu {
         display: block;
         background: #FFFFFF;
+        text-align: center;
         z-index: 100;
         width: 100%;
         padding-top: 50px;
@@ -157,9 +158,8 @@ input#burger {
         padding-bottom: 10px;
     }
 
-    .link {
-        width: -moz-fit-content;
-        display: block;
+    li:not(:first-child) {
+        margin-left: 2rem;
         text-align: center;
         margin: 1rem auto;
     }
@@ -172,7 +172,6 @@ input#burger {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 20%;
-        margin: auto;
+        margin: 2rem auto 0;
     }
 }

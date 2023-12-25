@@ -7,17 +7,16 @@
     max-width: 20rem;
     padding: .5rem 1rem;
     margin: 1rem auto .8rem;
-    border-radius: 1.2rem;
+    border-radius: .1rem;
     outline: none;
-    font-weight: 500;
-    font-size: .2rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 1.5px solid rgb(133, 133, 133);
-    color: rgb(235, 235, 235);
-    background-color: rgb(133, 133, 133);
+    border: none;
+    color: #f2f2f2;
+    background-color: #373737;
 }
 
 .product-cta>.add-to-cart {
@@ -26,7 +25,9 @@
 }
 
 .product-cta:hover {
-    border: 1.5px solid rgba(79, 79, 79, .7);
-    color: rgb(86, 86, 86);
-    background-color: rgb(200, 200, 200);
+    background-color: #555555;
+}
+
+.product-cta>.material-icons {
+    font-size: 1.4rem;
 }
