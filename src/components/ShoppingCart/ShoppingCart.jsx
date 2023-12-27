@@ -12,14 +12,16 @@ const ShoppingCart = () => {
         setTotalQuantity(quantity);
     }, [getTotalQuantity]);
 
+    console.log("Total Quantity:", totalQuantity);
+
     return (
         <div>
             <Link to="/purchase">
                 <div className="cart-itemsCounter">
                     <span>{totalQuantity}</span>
                 </div>
-                <span className="material-icons header__icons" title="Ver tu carrito">
-                    shopping_cart
+                <span className="header__icon">
+                    <i className="fa-solid fa-cart-shopping" title="Ver tu carrito"></i>
                 </span>
             </Link>
         </div>

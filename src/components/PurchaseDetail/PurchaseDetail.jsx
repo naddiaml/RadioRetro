@@ -3,6 +3,8 @@ import './PurchaseDetail.css';
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
+import emptyCartImg from '../../assets/emptyCart.svg';
+
 const PurchaseDetail = () => {
     const { cart, removeFromCart } = useContext(CartContext);
 
@@ -23,7 +25,7 @@ const PurchaseDetail = () => {
             <h2>TU CARRITO</h2>
             {cart.length === 0 ? (
                 <div className="empty-cart__items-container">
-                    <img src="assets\emptyCart.svg" alt="El carrito está vacío." className="empty_cart__img" />
+                    <img src={emptyCartImg} alt="El carrito está vacío." className="empty_cart__img" />
                     <p className="empty-cart__p">En este momento, <b>no hay productos en tu carrito.</b></p>
                     <button className="store-button">
                         <Link to={"/store"}>
@@ -45,8 +47,8 @@ const PurchaseDetail = () => {
                                         <p><b>Precio:</b> $ {calculateTotalPrice(item)}</p>
                                     </div>
                                     <p className="cart__remove-products" onClick={() => handleRemoveProduct(item.id)}>
-                                        <span className="material-icons">
-                                            delete
+                                        <span>
+                                            <i className="fa-solid fa-xmark"></i>
                                         </span>
                                         Eliminar producto
                                     </p>

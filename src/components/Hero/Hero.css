@@ -29,10 +29,11 @@
 }
 
 
-.hero__span span.chevron {
+span.chevron>i {
     position: relative;
-    top: .12rem;
     margin-left: .2rem;
+    top: -.25rem;
+    font-size: .5rem;
 }
 
 .hero__span:hover {
@@ -71,12 +72,13 @@
     width: 20rem;
 }
 
-.hero__scroll {
-    width: fit-content;
+.chevron.hero__scroll>i {
     position: relative;
-    margin: 5rem auto 0;
+    top: 6rem;
     left: 50%;
     z-index: -1;
+    margin: 0 auto;
+    font-size: 1rem;
 }
 
 @media screen and (max-width:1100px) {
@@ -139,9 +141,7 @@
         margin: .5rem auto;
     }
 
-    .hero__scroll {
-        width: fit-content;
-        position: relative;
-        margin: 0 auto 2rem;
+    .chevron.hero__scroll>i {
+        display: none;
     }
 }

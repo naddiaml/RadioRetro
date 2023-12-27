@@ -1,0 +1,39 @@
+.carousel-container {
+    background-color: #F5F5F5;
+    margin: 2rem 0;
+    padding: 3.5rem 0;
+}
+
+.owl-carousel {
+    flex-direction: row;
+    width: 90% !important;
+    margin: 0 auto;
+}
+
+.owl-stage {
+    display: flex;
+}
+
+.owl-item,
+.owl-item.active {
+    width: 25% !important;
+    height: 100% !important;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+@media screen and (max-width:1100px) {
+    .carousel-container {
+        padding: 2rem 0 .8rem;
+    }
+
+    .owl-dots {
+        margin-top: 1rem !important;
+    }
+}

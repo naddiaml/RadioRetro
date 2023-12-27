@@ -1,0 +1,27 @@
+.carousel-item {
+    display: flex;
+    max-width: 20rem;
+    margin: auto;
+}
+
+.carousel-item__icon {
+    font-size: 2rem;
+    color: #373737;
+}
+
+.carousel-item__text-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+}
+
+.carousel-item__text-container span:first-child {
+    color: #373737;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.carousel-item__text-container span:last-child {
+    font-size: 0.9rem;
+    line-height: 20px;
+}

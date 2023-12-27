@@ -44,8 +44,8 @@ const ProductCard = ({ product }) => {
             <span className='product-card__details' title="Ver más detalles de este producto 👀">
                 <Link to={`/products/${product.id}`}>
                     MÁS DETALLES
-                    <span className="material-icons chevron">
-                        chevron_right
+                    <span className="chevron">
+                        <i className="fa-solid fa-chevron-right"></i>
                     </span>
                 </Link>
             </span>

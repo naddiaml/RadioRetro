@@ -36,10 +36,6 @@ li a,
     cursor: pointer;
 }
 
-.header__icons {
-    margin-left: 2rem;
-}
-
 input#burger {
     display: none;
 }
@@ -152,6 +148,7 @@ input#burger {
         width: 100%;
         padding-top: 50px;
         height: 100%;
+        margin-top: -1rem;
     }
 
     #topics {

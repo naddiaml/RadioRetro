@@ -3,7 +3,6 @@ import './Footer.css';
 import logo from '../Footer/RadioRetro-WLogo.webp';
 
 import { Link } from 'react-router-dom';
-// routing adjustments
 
 const Footer = () => {
     return (

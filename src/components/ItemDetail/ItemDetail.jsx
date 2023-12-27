@@ -38,19 +38,25 @@ const ItemDetail = () => {
       <div className="item-detail__navigation">
         <span>
           <Link to={"/"}>
-            Inicio<span className="material-icons chevron">chevron_right</span>
+            Inicio<span className="chevron">
+              <i className="fa-solid fa-chevron-right"></i>
+            </span>
           </Link>
         </span>
         <span>
           <Link to={"/store"}>
-            Tienda<span className="material-icons chevron">chevron_right</span>
+            Tienda<span className="chevron">
+              <i className="fa-solid fa-chevron-right"></i>
+            </span>
           </Link>
         </span>
         {category && (
           <span>
             <Link to={`/store/${category.toLowerCase()}`}>
               {category.charAt(0).toUpperCase() + category.substring(1)}
-              <span className="material-icons chevron">chevron_right</span>
+              <span className="chevron">
+                <i className="fa-solid fa-chevron-right"></i>
+              </span>
             </Link>
           </span>
         )}
@@ -63,9 +69,9 @@ const ItemDetail = () => {
       <div className="item-detail__navigation-mobile">
         <span>
           <Link to={"/store"}>
-            <span className="material-icons chevron">
-              chevron_left
-            </span> Volver a la tienda
+            <span className="chevron">
+              <i className="fa-solid fa-chevron-left"></i>
+            </span>Volver a la tienda
           </Link>
         </span>
       </div>
@@ -90,9 +96,7 @@ const ItemDetail = () => {
               </div>
             ) : (
               <div className="itemOut-of-stock">
-                <span className="material-icons">
-                  error_outline
-                </span>
+                <i className="fa-solid fa-circle-exclamation"></i>
                 <p>Por el momento, este producto <b>no está disponible</b>.</p>
               </div>
             )}
