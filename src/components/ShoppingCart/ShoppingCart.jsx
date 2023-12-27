@@ -12,8 +12,6 @@ const ShoppingCart = () => {
         setTotalQuantity(quantity);
     }, [getTotalQuantity]);
 
-    console.log("Total Quantity:", totalQuantity);
-
     return (
         <div>
             <Link to="/purchase">

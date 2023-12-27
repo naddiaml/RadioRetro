@@ -1,0 +1,26 @@
+.best-sellers__container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.best-sellers__text-container {
+    width: 20%;
+    margin: 1rem auto 0;
+    border-bottom: 2px solid #AEAEAE;
+}
+
+.best-sellers__text-container h2 {
+    color: #AEAEAE;
+}
+
+.best-sellers__items-container {
+    display: flex;
+    margin: 2rem 0;
+}
+
+.best-sellers__items-container div.product-card:not(:first-child) {
+    margin-left: 2rem;
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ItemsListContainer.css";
-import ItemCount from "../ItemCount/ItemCount.jsx";
+import ProductCard from "../ProductCard/ProductCard.jsx";
 
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/config.js';
@@ -13,10 +13,10 @@ const ItemsListContainer = ({ enableLoadMore, buttonLoadMode, linkTo }) => {
     const loadQuantity = 6;
 
     const [showQuantity, setShowQuantity] = useState(sowInitialQuantity);
-    const [products, setProducts] = useState([]);
-    const category = useParams().category;
     const [title, setTitle] = useState('Nuestros productos');
 
+    const category = useParams().category;
+    const [products, setProducts] = useState([]);
     const fetchProducts = async () => {
         try {
             const productsCollection = collection(db, 'products');
@@ -62,59 +62,9 @@ const ItemsListContainer = ({ enableLoadMore, buttonLoadMode, linkTo }) => {
                 <article> Además de reparar radios antiguas, contamos con nuestro propio catálogo de <b>radios reacondicionadas</b> listas para disfrutar! 📻</article>
                 <div className="products-container">
                     {products.length > 0 &&
-                        products.slice(0, showQuantity).map((product) => {
-                            const isInStock = product.stock > 0;
-
-                            return (
-                                <div className={`product-card ${isInStock ? "in-stock" : "out-of-stock"}`} title={product.name} key={product.id}>
-                                    <div className="product-card__img-container">
-                                        <div className="product-card__image-overlay">
-                                            {!isInStock && (
-                                                // Estructura cuando no hay existencias (stock) del producto
-                                                <div className="out-of-stock-overlay">
-                                                    SIN STOCK
-                                                </div>
-                                            )}
-                                            <img src={product.image} alt={product.name} title={product.name} className="product-card__image" />
-                                        </div>
-                                    </div>
-                                    {!isInStock && (
-                                        // Estructura adicional cuando no hay existencias (stock) del producto
-                                        <>
-                                            <span className="product-card__name">
-                                                <b>{product.name.length > 23 ? product.name.slice(0, 25) + '...' : product.name}</b>
-                                            </span>
-                                            <span className="product-card__price">
-                                                <span className="d-sign">$</span>
-                                                <b>{product.price}</b>
-                                            </span>
-                                        </>
-                                    )}
-                                    {isInStock && (
-                                        // Estructura cuando hay existencias (stock) del producto
-                                        <>
-                                            <span className="product-card__name">
-                                                <b>{product.name.length > 23 ? product.name.slice(0, 25) + '...' : product.name}</b>
-                                            </span>
-                                            <span className="product-card__price">
-                                                <span className="d-sign">$</span>
-                                                <b>{product.price}</b>
-                                            </span>
-                                            <ItemCount item={product} stock={product.stock} />
-                                        </>
-                                    )}
-                                    <span className='product-card__details' title="Ver más detalles de este producto 👀">
-                                        <Link to={`/products/${product.id}`}>
-                                            MÁS DETALLES
-                                            <span className="material-icons chevron">
-                                                chevron_right
-                                            </span>
-                                        </Link>
-                                    </span>
-                                </div>
-                            );
-                        })}
-
+                        products.slice(0, showQuantity).map((product) => (
+                            <ProductCard key={product.id} product={product} />
+                        ))}
                 </div>
                 <div className="load-more__container">
                     <Link to={linkTo} className={`load-more ${enableLoadMore && showQuantity >= products.length ? 'no-more-elements' : ''} ${enableLoadMore ? "enabled" : "disabled"}`}
