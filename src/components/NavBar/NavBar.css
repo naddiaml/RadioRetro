@@ -8,28 +8,28 @@ ul {
     align-items: center;
 }
 
-li {
+nav>ul>li {
     display: inline-block;
     font-size: .8rem;
     letter-spacing: 1px;
     font-weight: 400;
 }
 
-li:not(:first-child) {
+nav>ul>li:not(:first-child) {
     margin-left: 2rem;
 }
 
-li a:hover {
+nav>ul>lia:hover {
     font-weight: 700;
     color: #838383;
 }
 
-li.current a {
+nav>ul>li.current a {
     font-weight: 700;
     color: #AEAEAE;
 }
 
-li a,
+nav>ul>li a,
 .header__icons {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.75);
@@ -155,7 +155,7 @@ input#burger {
         padding-bottom: 10px;
     }
 
-    li:not(:first-child) {
+    nav>ul>li:not(:first-child) {
         margin-left: 2rem;
         text-align: center;
         margin: 1rem auto;

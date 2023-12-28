@@ -38,16 +38,16 @@ const Footer = () => {
                             <Link to="#">Sobre Nosotros</Link>
                         </li>
                         <li>
-                            <Link to="#">Medios de pago</Link>
-                        </li>
-                        <li>
                             <Link to="#">Cómo comprar</Link>
                         </li>
                         <li>
-                            <Link to="#">Métodos de envío</Link>
+                            <Link to="#">Medios de pago</Link>
                         </li>
                         <li>
-                            <Link to="#">Contacto</Link>
+                            <Link to="#">Sobre envíos</Link>
+                        </li>
+                        <li>
+                            <Link to="#">Después de comprar</Link>
                         </li>
                     </ul>
                 </div>
@@ -63,6 +63,9 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
+            <div className="copy-container">
+                <span>© Copyright Radio Retro 2023  |  All rights reserved.</span>
+            </div>
         </div>
     )
 }
