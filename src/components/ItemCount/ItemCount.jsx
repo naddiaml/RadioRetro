@@ -60,9 +60,7 @@ const ItemCount = ({ item, stock, onStockChange }) => {
         </div>
       ) : (
         <div className="itemOut-of-stock">
-          <span className="material-icons">
-            error_outline
-          </span>
+          <i className="fa-solid fa-circle-exclamation"></i>
           <p>No hay más stock de este producto.</p>
         </div>
       )}

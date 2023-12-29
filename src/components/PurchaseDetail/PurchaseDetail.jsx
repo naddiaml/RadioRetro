@@ -4,6 +4,7 @@ import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 
 import emptyCartImg from '../../assets/emptyCart.svg';
+import CtaButton from "../CtaButton/CtaButton";
 
 const PurchaseDetail = () => {
     const { cart, removeFromCart } = useContext(CartContext);
@@ -13,8 +14,13 @@ const PurchaseDetail = () => {
     };
 
     const calculateTotalCartPrice = () => {
-        return cart.reduce((total, item) => total + calculateTotalPrice(item), 0);
+        const total = cart.reduce((total, item) => {
+            const subtotal = calculateTotalPrice(item);
+            return total + subtotal;
+        }, 0);
+        return total;
     };
+
 
     const handleRemoveProduct = (productId) => {
         removeFromCart(productId);
@@ -22,49 +28,78 @@ const PurchaseDetail = () => {
 
     return (
         <div className="container">
-            <h2>TU CARRITO</h2>
             {cart.length === 0 ? (
                 <div className="empty-cart__items-container">
+                    <h2>TU CARRITO</h2>
                     <img src={emptyCartImg} alt="El carrito está vacío." className="empty_cart__img" />
                     <p className="empty-cart__p">En este momento, <b>no hay productos en tu carrito.</b></p>
-                    <button className="store-button">
-                        <Link to={"/store"}>
-                            VOLVER A LA TIENDA
-                        </Link>
-                    </button>
+                    <CtaButton buttonLink={'/store'} buttonTitle={'Volver a la tienda'} buttonText='Volver a la tienda' />
                 </div>
             ) : (
                 <div>
-                    <ul className="cart__items-container">
-                        {cart.map((item) => (
-                            <li key={item.id} className="cart__item">
-                                <img src={item.image} alt={item.name} />
-                                <div className="cart__product-details">
-                                    <div>
-                                        <p className="cart__product-name"><b>{item.name}</b></p>
-                                        <p className="cart__product-uprice">Precio por unidad: $ {item.price}</p>
-                                        <p>Cantidad: {item.quantity}</p>
-                                        <p><b>Precio:</b> $ {calculateTotalPrice(item)}</p>
-                                    </div>
-                                    <p className="cart__remove-products" onClick={() => handleRemoveProduct(item.id)}>
-                                        <span>
-                                            <i className="fa-solid fa-xmark"></i>
-                                        </span>
-                                        Eliminar producto
-                                    </p>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                    <p className="cart__total-price">Total: <span>$ {calculateTotalCartPrice()}</span></p>
-                    <div className="cart__checkout-button">
-                        <Link to={'/checkout'}>
-                            <button className='button__buy-cart'>Finalizar compra</button>
-                        </Link>
+                    <div className="purchase-detail__navigation">
+                        <h2 className="current">
+                            TU CARRITO
+                        </h2>
+                        <span className="chevron">
+                            <i className="fa-solid fa-chevron-right"></i>
+                        </span>
+                        <h2>
+                            CONFIRMACIÓN DE COMPRA
+                        </h2>
+                        <span className="chevron">
+                            <i className="fa-solid fa-chevron-right"></i>
+                        </span>
+                        <h2>
+                            ORDEN COMPLETA
+                        </h2>
                     </div>
+                    <table className="cart__table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cart.map((item) => (
+                                <tr key={item.id} className="cart__item">
+                                    <td>
+                                        <div className="cart__remove-products" onClick={() => handleRemoveProduct(item.id)}>
+                                            <span>
+                                                <i className="fa-solid fa-xmark"></i>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="cart_item_info">
+                                            <img src={item.image} alt={item.name} />
+                                            <div title={item.name}>
+                                                <Link to={`/products/${item.id}`} >
+                                                    <p className="cart__product-name">{item.name.length > 30 ? item.name.slice(0, 33) + '...' : item.name}</p>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$ {item.price}</td>
+                                    <td>{item.quantity}</td>
+                                    <td>$ {calculateTotalPrice(item)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <div className="total-price__container">
+                        <span>Total</span>
+                        <span>$ {calculateTotalCartPrice()}</span>
+                    </div>
+                    <CtaButton buttonLink={'/checkout'} buttonText={"Continuar con la compra"} />
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 };
 

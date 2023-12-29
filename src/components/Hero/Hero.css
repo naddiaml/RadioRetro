@@ -6,7 +6,7 @@
 }
 
 .hero__items-container {
-    width: 60%;
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,7 +14,7 @@
 }
 
 .hero__left-container {
-    width: 50%;
+    width: 25rem;
     letter-spacing: .5px;
     line-height: 1.5rem;
 }
@@ -46,19 +46,16 @@ span.chevron>i {
     margin: .5rem 0;
 }
 
-.cta {
-    width: 150px;
-    height: 40px;
-    background-color: #373737;
-    color: #EBEBEB;
-    font-size: 12px;
-    font-weight: 800;
+.button-container>.cta-button__container {
+    display: inline-block;
     letter-spacing: .5px;
-    border: none;
-    border-radius: 2px;
-    outline: none;
-    cursor: pointer;
+    margin-top: 0;
     margin-right: 1.2rem;
+}
+
+.button-container>.cta-button__container>a>.cta-button {
+    width: 9rem;
+
 }
 
 .button-container span {
@@ -92,6 +89,11 @@ span.chevron>i {
         line-height: 1.5rem;
         text-align: center;
         margin: auto;
+    }
+
+    .button-container>.cta-button__container {
+        display: block;
+        margin: 1rem auto;
     }
 
     .chevron {

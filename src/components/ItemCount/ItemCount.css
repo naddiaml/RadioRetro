@@ -1,7 +1,7 @@
 .controls {
     width: 8rem;
-    height: 2.5rem;
-    margin: 1rem auto .5rem;
+    height: 2.8rem;
+    margin: 1rem auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +11,7 @@
 
 .controls button {
     width: 1.8rem;
-    height: 2.5rem;
+    height: 2.8rem;
     font-size: 1.2rem;
     outline: none;
     border: none;

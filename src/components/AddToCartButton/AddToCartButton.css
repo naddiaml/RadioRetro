@@ -1,35 +1,3 @@
 .product-cta__container.disable-addToCart {
     display: none;
 }
-
-.product-cta {
-    min-width: 15rem;
-    max-width: 20rem;
-    padding: .65rem 1rem;
-    margin: 1rem auto .8rem;
-    border-radius: .1rem;
-    outline: none;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: none;
-    color: #f2f2f2;
-    background-color: #373737;
-}
-
-.product-cta>.add-to-cart {
-    margin-left: .9rem;
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: .5px;
-}
-
-.product-cta:hover {
-    background-color: #555555;
-}
-
-.product-cta>span>i {
-    font-size: 1.15rem;
-}
