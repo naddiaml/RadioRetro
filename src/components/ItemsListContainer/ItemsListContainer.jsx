@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./ItemsListContainer.css";
 import ProductCard from "../ProductCard/ProductCard.jsx";
-
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../firebase/config.js';
-
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { fetchProductsFromFirebase } from "../../helpers/firebaseHelper.js";
+
 
 const ItemsListContainer = ({ enableLoadMore, buttonLoadMode, linkTo }) => {
     const sowInitialQuantity = 6;
@@ -17,20 +15,10 @@ const ItemsListContainer = ({ enableLoadMore, buttonLoadMode, linkTo }) => {
 
     const category = useParams().category;
     const [products, setProducts] = useState([]);
+
     const fetchProducts = async () => {
         try {
-            const productsCollection = collection(db, 'products');
-            const q = category
-                ? query(productsCollection, where('category', '==', category))
-                : productsCollection;
-
-            const querySnapshot = await getDocs(q);
-            const productsData = [];
-
-            querySnapshot.forEach((doc) => {
-                productsData.push({ ...doc.data(), id: doc.id });
-            });
-
+            const productsData = await fetchProductsFromFirebase(category);
             setProducts(productsData);
         } catch (error) {
             console.error('Error fetching products: ', error);

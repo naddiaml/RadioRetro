@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import '../ItemDetail/ItemDetail.css';
+import './ItemDetail.css';
 import Rate from "../Rate/Rate.jsx";
 import ItemCount from "../ItemCount/ItemCount.jsx";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../firebase/config.js';
+import { fetchProductByIdFromFirebase } from "../../helpers/firebaseHelper.js";
 
 const ItemDetail = () => {
   const [item, setItem] = useState({});
@@ -15,13 +14,9 @@ const ItemDetail = () => {
   useEffect(() => {
     const fetchItemById = async () => {
       try {
-        const itemDocRef = doc(db, 'products', id);
-        const itemDocSnapshot = await getDoc(itemDocRef);
-
-        if (itemDocSnapshot.exists()) {
-          setItem({ ...itemDocSnapshot.data(), id: itemDocSnapshot.id });
-        } else {
-          console.error("El producto no fue encontrado");
+        const product = await fetchProductByIdFromFirebase(id);
+        if (product) {
+          setItem(product);
         }
       } catch (error) {
         console.error("Error al obtener el producto:", error);
@@ -32,7 +27,6 @@ const ItemDetail = () => {
   }, [id]);
 
   const isInStock = item.stock !== undefined && item.stock > 0;
-
   return (
     <div className="container">
       <div className="item-detail__navigation">

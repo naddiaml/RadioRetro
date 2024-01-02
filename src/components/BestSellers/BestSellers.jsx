@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './BestSellers.css';
 import ProductCard from "../ProductCard/ProductCard.jsx";
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
-import { db } from '../../firebase/config.js';
+import { fetchProductsFromFirebase } from "../../helpers/firebaseHelper.js";
 
 const BestSellers = () => {
     const [bestSellers, setBestSellers] = useState([]);
@@ -10,17 +9,15 @@ const BestSellers = () => {
     useEffect(() => {
         const fetchBestSellers = async () => {
             try {
-                const productsCollection = collection(db, 'products');
-                const q = query(productsCollection, orderBy('rate', 'desc'), limit(2));
+                // Utiliza el helper para obtener los productos
+                const bestSellersData = await fetchProductsFromFirebase();
 
-                const querySnapshot = await getDocs(q);
-                const bestSellersData = [];
+                // Ordena los productos por la tasa en orden descendente y limita a 2
+                const sortedBestSellers = bestSellersData
+                    .sort((a, b) => b.rate - a.rate)
+                    .slice(0, 2);
 
-                querySnapshot.forEach((doc) => {
-                    bestSellersData.push({ ...doc.data(), id: doc.id });
-                });
-
-                setBestSellers(bestSellersData);
+                setBestSellers(sortedBestSellers);
             } catch (error) {
                 console.error('Error fetching best sellers: ', error);
             }
