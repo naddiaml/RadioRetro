@@ -20,10 +20,10 @@ const App = () => {
         <Routes>
 
           <Route path='/' element={<Home />} />
-          <Route path='/store' element={<Store />} />
-          <Route path='/store/:category' element={<Store />} />
-          <Route path='/products/:id' element={<ItemDetail />} />
-          <Route path='/purchase' element={<PurchaseDetail />} />
+          <Route path='/tienda' element={<Store />} />
+          <Route path='/tienda/:category' element={<Store />} />
+          <Route path='/tienda/:category/:id' element={<ItemDetail />} />
+          <Route path='/mi-carrito' element={<PurchaseDetail />} />
           <Route path='/checkout' element={<Checkout />} />
 
         </Routes>

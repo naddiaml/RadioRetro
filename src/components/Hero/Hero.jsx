@@ -5,8 +5,6 @@ import CtaButton from '../CtaButton/CtaButton.jsx';
 
 import { Link } from 'react-router-dom';
 
-const ctaTienda = "Cotizar";
-
 const Hero = () => {
     return (
         <section className="hero">
@@ -17,7 +15,7 @@ const Hero = () => {
                     <div className="button-container">
                         <CtaButton buttonText={'Cotizar'} />
                         <span className='hero__span'>
-                            <Link to="/store">
+                            <Link to="/tienda">
                                 IR A LA TIENDA
                                 <span className="chevron">
                                     <i className="fa-solid fa-chevron-right"></i>

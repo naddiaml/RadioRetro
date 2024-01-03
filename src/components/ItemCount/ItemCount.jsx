@@ -35,7 +35,6 @@ const ItemCount = ({ item, stock, onStockChange }) => {
 
       setQuantity(1);
 
-      // Notificar al componente padre sobre el cambio de stock
       onStockChange && onStockChange({ id: item.id, stock: stock - availableQuantity });
     }
   };

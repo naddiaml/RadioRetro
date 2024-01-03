@@ -14,7 +14,7 @@ const ShoppingCart = () => {
 
   return (
     <div>
-      <Link to="/purchase">
+      <Link to="/mi-carrito">
         <div className="cart-itemsCounter">
           <span>{totalQuantity}</span>
         </div>

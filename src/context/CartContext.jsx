@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
             setCart(updatedCart);
             setStockLocally(item.id, item.stock - updatedCart[existingItemIndex].quantity);
         } else {
-            const newItem = { id: item.id, name: item.name, image: item.image, price: item.price, quantity };
+            const newItem = { id: item.id, category: item.category, name: item.name, image: item.image, price: item.price, quantity };
             setCart([...cart, newItem]);
             setStockLocally(item.id, item.stock - quantity);
         }

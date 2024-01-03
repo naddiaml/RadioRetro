@@ -21,14 +21,15 @@ const ProductCard = ({ product }) => {
             {!isInStock && (
                 <>
                     <span className="product-card__name">
-                        <b>{product.name.length > 23 ? product.name.slice(0, 25) + '...' : product.name}</b>
+                        <b>{product && product.name && product.name.length > 23 ? product.name.slice(0, 25) + '...' : product.name}</b>
                     </span>
                     <span className="product-card__price">
                         <span className="d-sign">$</span>
-                        <b>{product.price}</b>
+                        <b>{product && product.price}</b>
                     </span>
                 </>
             )}
+
             {isInStock && (
                 <>
                     <span className="product-card__name">
@@ -41,14 +42,16 @@ const ProductCard = ({ product }) => {
                     <ItemCount item={product} stock={product.stock} />
                 </>
             )}
-            <span className='product-card__details' title="Ver más detalles de este producto 👀">
-                <Link to={`/products/${product.id}`}>
-                    MÁS DETALLES
-                    <span className="chevron">
-                        <i className="fa-solid fa-chevron-right"></i>
-                    </span>
-                </Link>
-            </span>
+            {product.category && (
+                <span className='product-card__details' title="Ver más detalles de este producto 👀">
+                    <Link to={`/tienda/${product.category.toLowerCase()}/${product.id}`}>
+                        MÁS DETALLES
+                        <span className="chevron">
+                            <i className="fa-solid fa-chevron-right"></i>
+                        </span>
+                    </Link>
+                </span>
+            )}
         </div>
     );
 };

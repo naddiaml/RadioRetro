@@ -16,16 +16,16 @@ const Footer = () => {
                 <div className="footer__links-container">
                     <ul>
                         <li>
-                            <Link to="/store">Tienda</Link>
+                            <Link to="/tienda">Tienda</Link>
                         </li>
                         <li>
-                            <Link to="/store/transistorizadas">Transistorizadas</Link>
+                            <Link to="/tienda/transistorizadas">Transistorizadas</Link>
                         </li>
                         <li>
-                            <Link to="/store/valvulares">Valvulares</Link>
+                            <Link to="/tienda/valvulares">Valvulares</Link>
                         </li>
                         <li>
-                            <Link to="/store/portátiles">Portátiles</Link>
+                            <Link to="/tienda/portátiles">Portátiles</Link>
                         </li>
                     </ul>
                 </div>

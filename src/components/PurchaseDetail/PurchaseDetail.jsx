@@ -1,3 +1,5 @@
+// PurchaseDetail.jsx
+
 import React, { useContext } from "react";
 import './PurchaseDetail.css';
 import { CartContext } from "../../context/CartContext";
@@ -21,7 +23,6 @@ const PurchaseDetail = () => {
         return total;
     };
 
-
     const handleRemoveProduct = (productId) => {
         removeFromCart(productId);
     };
@@ -33,7 +34,7 @@ const PurchaseDetail = () => {
                     <h2>TU CARRITO</h2>
                     <img src={emptyCartImg} alt="El carrito está vacío." className="empty_cart__img" />
                     <p className="empty-cart__p">En este momento, <b>no hay productos en tu carrito.</b></p>
-                    <CtaButton buttonLink={'/store'} buttonTitle={'Volver a la tienda'} buttonText='Volver a la tienda' />
+                    <CtaButton buttonLink={'/tienda'} buttonTitle={'Volver a la tienda'} buttonText='Volver a la tienda' />
                 </div>
             ) : (
                 <div>
@@ -78,7 +79,7 @@ const PurchaseDetail = () => {
                                         <div className="cart_item_info">
                                             <img src={item.image} alt={item.name} />
                                             <div title={item.name}>
-                                                <Link to={`/products/${item.id}`} >
+                                                <Link to={`/tienda/${item.category}/${item.id}`} >
                                                     <p className="cart__product-name">{item.name.length > 30 ? item.name.slice(0, 33) + '...' : item.name}</p>
                                                 </Link>
                                             </div>

@@ -5,8 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
     const location = useLocation();
-    // Agrega esto al componente NavBar para imprimir la ruta actual en la consola.
-    console.log("Current Path:", location.pathname);
 
     return (
         <div>
@@ -24,20 +22,20 @@ const NavBar = () => {
                         </Link>
                     </li>
 
-                    <li className={location.pathname === "/store/transistorizadas" ? "link current" : "link"}>
-                        <Link to="/store/transistorizadas">
+                    <li className={location.pathname === "/tienda/transistorizadas" ? "link current" : "link"}>
+                        <Link to="/tienda/transistorizadas">
                             TRANSISTORIZADAS
                         </Link>
                     </li>
 
-                    <li className={location.pathname === "/store/valvulares" ? "link current" : "link"}>
-                        <Link to="/store/valvulares">
+                    <li className={location.pathname === "/tienda/valvulares" ? "link current" : "link"}>
+                        <Link to="/tienda/valvulares">
                             VALVULARES
                         </Link>
                     </li>
 
-                    <li className={decodeURIComponent(location.pathname) === "/store/portátiles" ? "link current" : "link"}>
-                        <Link to="/store/portátiles">
+                    <li className={decodeURIComponent(location.pathname) === "/tienda/portátiles" ? "link current" : "link"}>
+                        <Link to="/tienda/portátiles">
                             PORTÁTILES
                         </Link>
                     </li>

@@ -38,7 +38,7 @@ const ItemDetail = () => {
           </Link>
         </span>
         <span>
-          <Link to={"/store"}>
+          <Link to={"/tienda"}>
             Tienda<span className="chevron">
               <i className="fa-solid fa-chevron-right"></i>
             </span>
@@ -46,7 +46,7 @@ const ItemDetail = () => {
         </span>
         {category && (
           <span>
-            <Link to={`/store/${category.toLowerCase()}`}>
+            <Link to={`/tienda/${category.toLowerCase()}`}>
               {category.charAt(0).toUpperCase() + category.substring(1)}
               <span className="chevron">
                 <i className="fa-solid fa-chevron-right"></i>
@@ -55,14 +55,14 @@ const ItemDetail = () => {
           </span>
         )}
         <span>
-          <Link to={`/products/${item.id}`} className="current-item">
+          <Link to={category ? `/tienda/${category.toLowerCase()}/${item.id}` : "/tienda"} className="current-item">
             {item.name}
           </Link>
         </span>
       </div>
       <div className="item-detail__navigation-mobile">
         <span>
-          <Link to={"/store"}>
+          <Link to={"/tienda"}>
             <span className="chevron">
               <i className="fa-solid fa-chevron-left"></i>
             </span>Volver a la tienda
