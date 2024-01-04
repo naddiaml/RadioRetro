@@ -10,7 +10,7 @@ const Home = () => {
             <Hero />
             <BestSellers />
             <CarouselSection />
-            <ItemsListContainer sectionTitle={"Nuestros productos"} buttonLoadMode={"Ver todos los productos"} enableLoadMore={false} linkTo={"/store"} />
+            <ItemsListContainer sectionTitle={"Nuestros productos"} buttonLoadMode={"Ver todos los productos"} enableLoadMore={false} linkTo={"/tienda"} />
         </div>
     )
 }
