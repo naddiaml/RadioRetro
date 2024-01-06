@@ -69,7 +69,7 @@ const PurchaseDetail = () => {
                             {cart.map((item) => (
                                 <tr key={item.id} className="cart__item">
                                     <td>
-                                        <div className="cart__remove-products" onClick={() => handleRemoveProduct(item.id)}>
+                                        <div className="cart__remove-products" onClick={() => handleRemoveProduct(item.id)} title="Elimina este producto de tu carrito">
                                             <span>
                                                 <i className="fa-solid fa-xmark"></i>
                                             </span>
