@@ -5,6 +5,7 @@ import Store from './components/Store/Store.jsx';
 import ItemDetail from './components/ItemDetail/ItemDetail.jsx';
 import PurchaseDetail from './components/PurchaseDetail/PurchaseDetail.jsx';
 import Checkout from './components/Checkout/Checkout.jsx';
+import OrderDetails from './components/OrderDetails/OrderDetails.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 import { CartProvider } from './context/CartContext.jsx';
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/tienda/:category/:id' element={<ItemDetail />} />
           <Route path='/mi-carrito' element={<PurchaseDetail />} />
           <Route path='/checkout' element={<Checkout />} />
+          <Route path="/orden/:orderID" element={<OrderDetails />} />
 
         </Routes>
         <Footer />

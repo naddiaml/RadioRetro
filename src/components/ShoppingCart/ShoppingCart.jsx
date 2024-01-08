@@ -5,18 +5,12 @@ import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
   const { getTotalQuantity } = useContext(CartContext);
-  const [totalQuantity, setTotalQuantity] = useState(0);
-
-  useEffect(() => {
-    const quantity = getTotalQuantity();
-    setTotalQuantity(quantity);
-  }, [getTotalQuantity]);
 
   return (
     <div>
       <Link to="/mi-carrito">
         <div className="cart-itemsCounter">
-          <span>{totalQuantity}</span>
+          <span>{getTotalQuantity()}</span>
         </div>
         <span className="header__icon">
           <i className="fa-solid fa-cart-shopping" title="Ver tu carrito"></i>

@@ -1,5 +1,3 @@
-// PurchaseDetail.jsx
-
 import React, { useContext } from "react";
 import './PurchaseDetail.css';
 import { CartContext } from "../../context/CartContext";
@@ -7,9 +5,10 @@ import { Link } from "react-router-dom";
 
 import emptyCartImg from '../../assets/emptyCart.svg';
 import CtaButton from "../CtaButton/CtaButton";
+import CartNavigation from "../CartNavigation/CartNavigation";
 
 const PurchaseDetail = () => {
-    const { cart, removeFromCart } = useContext(CartContext);
+    const { cart, removeFromCart, getTotalQuantity } = useContext(CartContext);
 
     const calculateTotalPrice = (item) => {
         return item.price * item.quantity;
@@ -38,23 +37,7 @@ const PurchaseDetail = () => {
                 </div>
             ) : (
                 <div>
-                    <div className="purchase-detail__navigation">
-                        <h2 className="current">
-                            TU CARRITO
-                        </h2>
-                        <span className="chevron">
-                            <i className="fa-solid fa-chevron-right"></i>
-                        </span>
-                        <h2>
-                            CONFIRMACIÓN DE COMPRA
-                        </h2>
-                        <span className="chevron">
-                            <i className="fa-solid fa-chevron-right"></i>
-                        </span>
-                        <h2>
-                            ORDEN COMPLETA
-                        </h2>
-                    </div>
+                    <CartNavigation />
                     <table className="cart__table">
                         <thead>
                             <tr>
