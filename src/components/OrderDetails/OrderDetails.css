@@ -1,0 +1,233 @@
+.order-details__text-container {
+    margin: 2rem auto;
+    line-height: 1.5rem;
+    width: 55%;
+    text-align: center;
+}
+
+.order-details__text-container p:first-of-type {
+    margin: 1rem auto .5rem;
+}
+
+.payment-advise {
+    width: 70%;
+    padding: 1.2rem 1rem .2rem;
+    margin: 1rem auto 1.2rem;
+    border-radius: .5rem;
+    background-color: #ebebeb;
+    display: flex;
+}
+
+.payment-advise__icon {
+    margin: 0 1.5rem;
+    color: #373737;
+    font-size: 1.2rem;
+}
+
+.payment-advise__text-container {
+    width: 90%;
+    font-size: .9rem;
+}
+
+.divider {
+    width: 100%;
+    margin: .5rem 0;
+    height: 1px;
+    background-color: #00000020;
+}
+
+.divider.w-80 {
+    width: 80%;
+    margin: auto
+}
+
+.payment-advise__items-container {
+    width: 60%;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.payment-advise__item {
+    color: #373737;
+    display: flex;
+    align-items: center;
+}
+
+.payment-advise__item span:first-of-type {
+    font-size: 1.2rem;
+    margin-right: .5rem;
+}
+
+.payment-advise__item span:last-child {
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.order-details__bank-account-data-container {
+    width: 65%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-details__bank-account-data-container img {
+    width: 15rem;
+}
+
+.order-details__bank-account,
+.order-details__data>div {
+    border: 1px #ebebeb solid;
+    border-radius: .5rem;
+    width: fit-content;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: .9rem;
+}
+
+.order-details__bank-account span:not(:first-child),
+.order-details__data>div.buyer-data span:not(:first-child) {
+    margin-top: .5rem;
+    margin-left: 1.5rem;
+    font-family: 'Montserrat';
+    line-height: 1.5rem;
+}
+
+.order-details__data>div.buyer-data {
+    width: 70%;
+    height: 15rem;
+    margin: 1rem auto 0;
+    border-radius: .5rem .5rem 0 0;
+}
+
+.order-details__data>div.cart-data {
+    width: 70%;
+    margin: auto;
+    border-radius: 0 0 .5rem .5rem;
+}
+
+.default-info {
+    color: #00000080;
+}
+
+.product {
+    width: 90%;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ebebeb;
+    margin: 0 auto;
+    display: flex;
+    align-items: start;
+}
+
+.product img {
+    max-width: 5rem;
+    max-height: 5rem;
+    margin-right: 1rem;
+}
+
+.product span,
+.product span b {
+    font-size: .9rem;
+    font-family: 'Montserrat';
+}
+
+.product-data span:first-of-type,
+.product-data span:nth-child(2) {
+    margin-top: .5rem;
+    display: inline-block;
+}
+
+.product-data span:nth-child(2) {
+    margin-left: 1rem;
+}
+
+.product-data>span:first-of-type::after {
+    content: 'x';
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.product-data>span:last-of-type {
+    display: block;
+    margin-top: .5rem;
+}
+
+.cart-data .total-price__container {
+    width: 20%;
+    margin: 1rem auto;
+}
+
+.cart-data .total-price__container span {
+    font-size: .9rem;
+}
+
+@media screen and (max-width: 1100px) {
+    .payment-advise {
+        width: 80%;
+    }
+
+    .payment-advise__text-container {
+        font-size: .8rem;
+    }
+
+    .order-details__bank-account-data-container {
+        width: 70%;
+    }
+
+    .order-details__data>div.buyer-data,
+    .order-details__data>div.cart-data {
+        width: 80%;
+    }
+
+    .cart-data .total-price__container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .payment-advise {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .payment-advise__icon {
+        margin: 0 auto 1.5rem;
+    }
+
+    .payment-advise__text-container {
+        font-size: .8rem;
+        text-align: center;
+        line-height: 1.2rem;
+    }
+
+    .payment-advise__items-container {
+        width: 70%;
+    }
+
+    .order-details__text-container {
+        width: 80%;
+    }
+
+    .order-details__bank-account-data-container img {
+        display: none;
+    }
+
+    .order-details__bank-account-data-container {
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .payment-advise__items-container {
+        flex-direction: column;
+    }
+
+    .payment-advise__item:first-child {
+        margin-bottom: 1.2rem;
+    }
+}

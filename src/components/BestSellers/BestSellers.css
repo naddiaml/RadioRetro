@@ -1,6 +1,6 @@
 .best-sellers__container {
     width: 80%;
-    margin: auto;
+    margin: 3rem auto;
     display: flex;
     align-items: center;
     justify-content: space-between;

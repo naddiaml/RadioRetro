@@ -30,8 +30,9 @@ const Checkout = () => {
                 datosDelEnvio: { country, provincia, municipioODepartamento, address },
                 productosComprados: storedCart,
                 notasDelPedido: notes,
-                total: precioTotal(storedCart),
                 medioDePago: payment,
+                status: "Pendiente",
+                total: precioTotal(storedCart),
             };
 
             localStorage.removeItem('cart');
