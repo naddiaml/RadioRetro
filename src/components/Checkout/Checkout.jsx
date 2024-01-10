@@ -123,20 +123,20 @@ const Checkout = () => {
                     <form className="checkout__form" onSubmit={handleSubmit(handleFormSubmit)}>
                         <fieldset>
                             <label htmlFor="name" className='fieldset-label'>Nombre <span className="required">*</span></label>
-                            <input type="text" placeholder="Ingresá tu nombre" {...register('name')} />
+                            <input type="text" placeholder="Ingresá tu nombre" {...register('name')} required />
                         </fieldset>
                         <fieldset>
                             <label htmlFor="surname" className='fieldset-label'>Apellido <span className="required">*</span></label>
-                            <input type="text" placeholder="Ingresá tu apellido" {...register('surname')} />
+                            <input type="text" placeholder="Ingresá tu apellido" {...register('surname')} required />
                         </fieldset>
                         <fieldset>
                             <label htmlFor="email" className='fieldset-label'>Email <span className="required">*</span></label>
-                            <input type="email" placeholder="Ingresá tu e-mail" {...register('email')} />
+                            <input type="email" placeholder="Ingresá tu e-mail" {...register('email')} required />
                         </fieldset>
                         <fieldset>
                             <label htmlFor="tel">Teléfono <span className="required">*</span>
                             </label>
-                            <input type="tel" placeholder='Ingresa tu número de teléfono' {...register('tel')} />
+                            <input type="tel" placeholder='Ingresa tu número de teléfono' {...register('tel')} required />
                         </fieldset>
                         <fieldset>
                             <label htmlFor="country">País <span className="required">*</span></label>
@@ -183,7 +183,7 @@ const Checkout = () => {
                         </fieldset>
                         <fieldset>
                             <label htmlFor="address" className='fieldset-label'>Dirección de envío <span className="required">*</span></label>
-                            <input type="text" placeholder="Ingresá la dirección de envío (Calle y número)" {...register('address')} />
+                            <input type="text" placeholder="Ingresá la dirección de envío (Calle y número)" {...register('address')} required />
                         </fieldset>
                         <fieldset>
                             <label htmlFor="notes">Notas del pedido <span className="not-required">(Opcional)</span> </label>
@@ -194,11 +194,11 @@ const Checkout = () => {
                                 Medio de pago:
                             </label>
                             <label htmlFor="payment1">
-                                <input type="radio" name="payment" id="payment1" value="MercadoPago" {...register('payment', { required: true })} />
+                                <input type="radio" name="payment" id="payment1" value="MercadoPago" {...register('payment', { required: true })} required />
                                 MercadoPago
                             </label>
                             <label htmlFor="payment1">
-                                <input type="radio" name="payment" id="payment1" value="Transferencia Bancaria" {...register('payment', { required: true })} />
+                                <input type="radio" name="payment" id="payment1" value="Transferencia Bancaria" {...register('payment', { required: true })} required />
                                 Transferencia Bancaria
                             </label>
                         </fieldset>
