@@ -49,6 +49,9 @@ const Footer = () => {
                         <li>
                             <Link to="#">Después de comprar</Link>
                         </li>
+                        <li>
+                            <Link to="/contacto">Contáctanos</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="footer__social-container">

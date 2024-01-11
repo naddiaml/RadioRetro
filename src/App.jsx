@@ -3,6 +3,7 @@ import Header from './components/Header/Header.jsx';
 import Home from './components/Home/Home.jsx';
 import Store from './components/Store/Store.jsx';
 import ItemDetail from './components/ItemDetail/ItemDetail.jsx';
+import Contact from './components/Contact/Contact.jsx';
 import PurchaseDetail from './components/PurchaseDetail/PurchaseDetail.jsx';
 import Checkout from './components/Checkout/Checkout.jsx';
 import OrderDetails from './components/OrderDetails/OrderDetails.jsx';
@@ -24,6 +25,7 @@ const App = () => {
           <Route path='/tienda' element={<Store />} />
           <Route path='/tienda/:category' element={<Store />} />
           <Route path='/tienda/:category/:id' element={<ItemDetail />} />
+          <Route path='/contacto' element={<Contact />} />
           <Route path='/mi-carrito' element={<PurchaseDetail />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path="/orden/:orderID" element={<OrderDetails />} />

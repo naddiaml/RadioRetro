@@ -22,30 +22,35 @@
     margin: 1rem auto 0;
 }
 
-form.checkout__form {
+form.checkout__form,
+form.contact__form {
     width: 50%;
     margin: auto;
 }
 
-form.checkout__form fieldset {
+form.checkout__form fieldset,
+form.contact__form fieldset {
     border: none;
     margin: 1rem auto;
 }
 
-form.checkout__form fieldset label:first-of-type {
+form.checkout__form fieldset label:first-of-type,
+form.contact__form fieldset label:first-of-type {
     display: block;
     font-weight: bold;
 }
 
-form.checkout__form fieldset label:first-of-type span.required {
+form.checkout__form fieldset label:first-of-type span.required,
+form.contact__form fieldset label:first-of-type span.required {
     color: #d54040;
 }
 
-form.checkout__form fieldset label:first-of-type span.not-required {
+form.checkout__form fieldset label:first-of-type span.not-required,
+form.contact__form fieldset label:first-of-type span.not-required {
     font-weight: normal;
 }
 
-form.checkout__form fieldset>input[type=text],
+fieldset>input[type=text],
 input[type=email],
 input[type=tel],
 select,
@@ -128,7 +133,8 @@ div.checout__post-purchase img.successful-purchase__img {
 
     }
 
-    form.checkout__form {
+    form.checkout__form,
+    form.contact__form {
         width: 80%;
     }
 }
@@ -138,7 +144,8 @@ div.checout__post-purchase img.successful-purchase__img {
         width: 90%;
     }
 
-    form.checkout__form {
+    form.checkout__form,
+    form.contact__form {
         width: 100%;
     }
 }
