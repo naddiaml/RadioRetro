@@ -54,7 +54,8 @@ span a.current-item {
 }
 
 img.product__image {
-    width: 80%;
+    max-width: 85%;
+    max-height: 90%;
 }
 
 .item-detail__product-details__container {

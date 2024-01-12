@@ -1,5 +1,4 @@
-.checkout__items-container,
-.checout__post-purchase {
+.checkout__items-container {
     width: 80%;
     margin: auto;
     display: flex;
@@ -122,15 +121,18 @@ form.checkout__form fieldset>label>input[type=radio] {
     margin-top: 1rem;
 }
 
-div.checout__post-purchase img.successful-purchase__img {
+img.successful-purchase__img {
     width: 20rem;
     margin: 4rem auto 1rem;
 }
 
 @media screen and (max-width:1100px) {
+    .checkout__items-container {
+        width: 100%;
+    }
+
     .checkout__text-container {
         width: 70%;
-
     }
 
     form.checkout__form,
@@ -146,6 +148,6 @@ div.checout__post-purchase img.successful-purchase__img {
 
     form.checkout__form,
     form.contact__form {
-        width: 100%;
+        width: 80%;
     }
 }

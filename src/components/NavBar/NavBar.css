@@ -19,7 +19,7 @@ nav>ul>li:not(:first-child) {
     margin-left: 2rem;
 }
 
-nav>ul>lia:hover {
+nav>ul>li>a:hover {
     font-weight: 700;
     color: #838383;
 }
@@ -47,7 +47,7 @@ input#burger {
         display: none;
     }
 
-    label {
+    label[for="burger"] {
         position: fixed;
         top: 2rem;
         right: 1.8rem;
@@ -56,7 +56,7 @@ input#burger {
         z-index: 5;
     }
 
-    input#burger+label span {
+    input#burger+label[for="burger"] span {
         position: absolute;
         width: 100%;
         height: 2px;
@@ -68,29 +68,29 @@ input#burger {
         transition: 0.5s;
     }
 
-    input#burger+label span:first-child {
+    input#burger+label[for="burger"] span:first-child {
         top: 3px;
     }
 
-    body input#burger+label span:last-child {
+    body input#burger+label[for="burger"] span:last-child {
         top: 16px;
     }
 
-    label:hover {
+    label[for="burger"]:hover {
         cursor: pointer;
     }
 
-    input#burger:checked+label span {
+    input#burger:checked+label[for="burger"] span {
         opacity: 0;
         top: 50%;
     }
 
-    input#burger:checked+label span:first-child {
+    input#burger:checked+label[for="burger"] span:first-child {
         opacity: 1;
         transform: rotate(405deg);
     }
 
-    input#burger:checked+label span:last-child {
+    input#burger:checked+label[for="burger"] span:last-child {
         opacity: 1;
         transform: rotate(-405deg) translate(4.5px, -4.5px);
 
