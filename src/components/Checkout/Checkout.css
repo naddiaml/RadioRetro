@@ -1,0 +1,153 @@
+.checkout__items-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.checkout__text-container {
+    width: 50%;
+    margin: 1rem auto;
+    line-height: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__container {
+    width: 80%;
+    margin: 1rem auto 0;
+}
+
+form.checkout__form,
+form.contact__form {
+    width: 50%;
+    margin: auto;
+}
+
+form.checkout__form fieldset,
+form.contact__form fieldset {
+    border: none;
+    margin: 1rem auto;
+}
+
+form.checkout__form fieldset label:first-of-type,
+form.contact__form fieldset label:first-of-type {
+    display: block;
+    font-weight: bold;
+}
+
+form.checkout__form fieldset label:first-of-type span.required,
+form.contact__form fieldset label:first-of-type span.required {
+    color: #d54040;
+}
+
+form.checkout__form fieldset label:first-of-type span.not-required,
+form.contact__form fieldset label:first-of-type span.not-required {
+    font-weight: normal;
+}
+
+fieldset>input[type=text],
+input[type=email],
+input[type=tel],
+select,
+textarea {
+    width: 100%;
+    margin: .8rem 0 .9rem;
+    padding: .8rem .5rem;
+    border: 1px solid #acacac;
+    border-radius: .2rem;
+    outline: none;
+}
+
+.select__container {
+    position: relative;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.select__container::before,
+.select__container::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+}
+
+.select__container::before {
+    border-left: .3rem solid transparent;
+    border-right: .3rem solid transparent;
+    border-bottom: .3rem solid black;
+    top: 40%;
+}
+
+.select__container::after {
+    border-left: .3rem solid transparent;
+    border-right: .3rem solid transparent;
+    border-top: .3rem solid black;
+    top: 55%;
+}
+
+select>option {
+    font-size: .95rem;
+}
+
+.disabled-select {
+    cursor: not-allowed;
+}
+
+textarea {
+    resize: vertical;
+    min-width: 100%;
+    height: 8rem;
+    min-height: 6rem;
+    max-height: 18rem;
+}
+
+form.checkout__form fieldset:last-of-type>label:not(:first-of-type) {
+    display: block;
+    margin-left: 1rem;
+}
+
+form.checkout__form fieldset>label>input[type=radio] {
+    margin-right: .5rem;
+    margin-top: 1rem;
+}
+
+img.successful-purchase__img {
+    width: 20rem;
+    margin: 4rem auto 1rem;
+}
+
+@media screen and (max-width:1100px) {
+    .checkout__items-container {
+        width: 100%;
+    }
+
+    .checkout__text-container {
+        width: 70%;
+    }
+
+    form.checkout__form,
+    form.contact__form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:950px) {
+    .checkout__text-container {
+        width: 90%;
+    }
+
+    form.checkout__form,
+    form.contact__form {
+        width: 80%;
+    }
+}

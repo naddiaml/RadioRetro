@@ -1,63 +1,71 @@
 import React, { useState, useEffect } from "react";
-import '../ItemDetail/ItemDetail.css';
+import './ItemDetail.css';
 import Rate from "../Rate/Rate.jsx";
 import ItemCount from "../ItemCount/ItemCount.jsx";
-import data from '../../data/products.json';
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { fetchProductByIdFromFirebase } from "../../helpers/firebaseHelper.js";
 
 const ItemDetail = () => {
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState({});
   const { id } = useParams();
   const { category } = item;
 
   useEffect(() => {
-    const findItemById = (productId) => {
-      return data.find((product) => product.id === productId);
+    const fetchItemById = async () => {
+      try {
+        const product = await fetchProductByIdFromFirebase(id);
+        if (product) {
+          setItem(product);
+        }
+      } catch (error) {
+        console.error("Error al obtener el producto:", error);
+      }
     };
 
-    const selectedItem = findItemById(Number(id));
-
-    if (selectedItem) {
-      setItem(selectedItem);
-    }
+    fetchItemById();
   }, [id]);
 
-  const isInStock = item.stock > 0;
-
+  const isInStock = item.stock !== undefined && item.stock > 0;
   return (
     <div className="container">
       <div className="item-detail__navigation">
         <span>
           <Link to={"/"}>
-            Inicio<span className="material-icons chevron">chevron_right</span>
+            Inicio<span className="chevron">
+              <i className="fa-solid fa-chevron-right"></i>
+            </span>
           </Link>
         </span>
         <span>
-          <Link to={"/store"}>
-            Tienda<span className="material-icons chevron">chevron_right</span>
+          <Link to={"/tienda"}>
+            Tienda<span className="chevron">
+              <i className="fa-solid fa-chevron-right"></i>
+            </span>
           </Link>
         </span>
         {category && (
           <span>
-            <Link to={`/store/${category.toLowerCase()}`}>
+            <Link to={`/tienda/${category.toLowerCase()}`}>
               {category.charAt(0).toUpperCase() + category.substring(1)}
-              <span className="material-icons chevron">chevron_right</span>
+              <span className="chevron">
+                <i className="fa-solid fa-chevron-right"></i>
+              </span>
             </Link>
           </span>
         )}
         <span>
-          <Link to={`/products/${item.id}`}>
+          <Link to={category ? `/tienda/${category.toLowerCase()}/${item.id}` : "/tienda"} className="current-item">
             {item.name}
           </Link>
         </span>
       </div>
       <div className="item-detail__navigation-mobile">
         <span>
-          <Link to={"/store"}>
-            <span className="material-icons chevron">
-              chevron_left
-            </span> Volver a la tienda
+          <Link to={"/tienda"}>
+            <span className="chevron">
+              <i className="fa-solid fa-chevron-left"></i>
+            </span>Volver a la tienda
           </Link>
         </span>
       </div>
@@ -69,28 +77,27 @@ const ItemDetail = () => {
           <span className="item-detail__product-name">{item.name}</span>
           <span className="item-detail__product-price">$ {item.price}</span>
           <div className="item-detail__product-description__container">
-            <span className="product-description__label"><b>Descripción del producto:</b></span>
             <p className="item-detail__product-description">{item.description}</p>
           </div>
           <div className="item-detail__product-rate-container">
             <span><b>Calificación:</b> </span>
             <Rate rating={item.rate} maxRating={5} />
           </div>
-          {isInStock ? (
-            <div className="itemIn-stock">
-              <ItemCount item={item} stock={`${item.stock}`} initial={1} onAdd={1} />
-            </div>
-          ) : (
-            <div className="itemOut-of-stock">
-              <span className="material-icons">
-                error_outline
-              </span>
-              <p>Por el momento, este producto <b>no está disponible</b>.</p>
-            </div>
-          )}
+          <div className="addToCart__items-container">
+            {isInStock ? (
+              <div className="itemIn-stock">
+                <ItemCount item={item} stock={Number(`${item.stock}`)} />
+              </div>
+            ) : (
+              <div className="itemOut-of-stock">
+                <i className="fa-solid fa-circle-exclamation"></i>
+                <p>Por el momento, este producto <b>no está disponible</b>.</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

@@ -1,18 +1,23 @@
+import React, { useContext, useEffect, useState } from "react";
 import "./ShoppingCart.css";
-
-let counter = 1;
+import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
-    return (
-            <div>
-                <div className="cart-itemsCounter">
-                <span>{counter}</span>
-            </div>
-        <span className="material-icons header__icons" title="Ver tu carrito">
-            shopping_cart
-        </span>
-            </div>
-    )
-}
+  const { getTotalQuantity } = useContext(CartContext);
 
-export default ShoppingCart
+  return (
+    <div>
+      <Link to="/mi-carrito">
+        <div className="cart-itemsCounter">
+          <span>{getTotalQuantity()}</span>
+        </div>
+        <span className="header__icon">
+          <i className="fa-solid fa-cart-shopping" title="Ver tu carrito"></i>
+        </span>
+      </Link>
+    </div>
+  );
+};
+
+export default ShoppingCart;

@@ -2,16 +2,31 @@
     display: none;
 }
 
-.item-detail__navigation, .item-detail__navigation-mobile {
+.item-detail__navigation,
+.item-detail__navigation-mobile {
     width: 80%;
     margin: 0 auto 2rem;
 }
 
-.item-detail__navigation span a, .item-detail__navigation-mobile span a {
+.item-detail__navigation span.chevron>i {
+    margin-right: .5rem;
+}
+
+.item-detail__navigation-mobile span.chevron>i {
+    margin-right: .5rem;
+}
+
+.item-detail__navigation span a,
+.item-detail__navigation-mobile span a {
+    font-family: 'Montserrat';
+    font-size: .9rem;
     text-decoration: none;
     color: rgba(0, 0, 0, .7);
-    font-family: 'Montserrat';
     font-weight: 400;
+}
+
+span a.current-item {
+    color: rgba(56, 56, 56, 0.5);
 }
 
 .item-detail__navigation span a:hover {
@@ -33,13 +48,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 5px rgba(212, 212, 212, 0.7);
-    border-radius: .8rem;
+    box-shadow: 0 0 5px #d4d4d480;
+    border-radius: .1rem;
 
 }
 
 img.product__image {
-    width: 80%;
+    max-width: 85%;
+    max-height: 90%;
 }
 
 .item-detail__product-details__container {
@@ -48,23 +64,29 @@ img.product__image {
 }
 
 .item-detail__product-name {
-    font-weight: 600;
+    font-weight: bold;
     font-size: 1.4rem;
     display: block;
-    margin: 0 0 1rem;
+    margin: 0 0 .5rem;
 }
 
 .item-detail__product-price {
-    font-weight: 600;
     font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.item-detail__product-name,
+.item-detail__product-price {
+    font-family: 'Montserrat';
 }
 
 .item-detail__product-description__container {
-    margin: 1rem 0;
-    width: 70%;
+    margin: .5rem 0;
+    width: 80%;
 }
 
 .item-detail__product-description {
+    font-size: .95rem;
     margin: .2rem 0;
     line-height: 1.4rem;
 }
@@ -85,27 +107,65 @@ img.product__image {
     display: inline-block
 }
 
-.itemIn-stock {
-    width: 40%;
-    margin-left: 5rem;
+.addToCart__items-container {
+    width: 80%;
+    display: flex;
+    align-items: start;
+}
+
+.itemIn-stock div {
+    display: flex;
+    align-items: center;
+}
+
+.itemIn-stock div.counter>div>div.controls {
+    margin-right: 1rem;
 }
 
 .itemOut-of-stock {
-    width: 80%;
+    width: 100%;
     height: 5rem;
     margin: 2rem 0;
     background-color: rgb(227, 227, 227);
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
     border-radius: .4rem;
+    color: #373737;
+}
+
+.itemOut-of-stock>i {
+    margin-right: 1rem;
+    font-size: 1.3rem;
 }
 
 @media screen and (max-width:1100px) {
+
+    .item-detail__product-description__container {
+        width: 100%;
+    }
+
+    .addToCart__items-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .itemOut-of-stock {
         width: 100%;
-        height: 3.8rem;
         font-size: .9rem;
+    }
+
+    .itemOut-of-stock>i {
+        font-size: 1rem;
+        margin-right: 1rem;
+    }
+
+    .itemOut-of-stock p {
+        width: 80%;
+        font-size: .8rem;
     }
 }
 
@@ -117,7 +177,7 @@ img.product__image {
     .item-detail__navigation {
         display: none;
     }
-    
+
     .item-detail {
         flex-direction: column;
         align-items: center;
@@ -132,12 +192,14 @@ img.product__image {
     .item-detail__product-name {
         margin-top: 2rem;
         text-align: center;
+        font-size: 1.2rem;
     }
 
     .item-detail__product-price {
         text-align: center;
         display: block;
         margin: auto;
+        font-size: 1.1rem;
     }
 
     .item-detail__product-description__container {
@@ -145,7 +207,19 @@ img.product__image {
     }
 
     .itemIn-stock {
-        width: 50%;
+        width: 90%;
         margin: auto;
+    }
+
+    .itemIn-stock div.counter>div:not(.itemOut-of-stock) {
+        width: 100%;
+        margin: 2rem auto .5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .itemIn-stock div.counter>div>div.controls {
+        margin: 0;
     }
 }

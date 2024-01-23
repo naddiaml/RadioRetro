@@ -1,43 +1,78 @@
-import { useState } from "react";
-import "./ItemCount.css"
+import React, { useState, useContext, useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
+import { CartContext } from "../../context/CartContext";
+import "./ItemCount.css";
 
-const ItemCount = ({ item, stock, initial, onAdd }) => {
-    const [quantity, setQuantity] = useState(initial);
+const ItemCount = ({ item, stock, onStockChange }) => {
+  const [quantity, setQuantity] = useState(1);
+  const [isInStock, setIsInStock] = useState(true);
+  const { addToCart } = useContext(CartContext);
+  const { getTotalQuantity } = useContext(CartContext);
+  const totalQuantityRef = useRef(0);
 
-    const increment = () => {
-        quantity < stock && setQuantity(quantity + 1);
-    };
+  useEffect(() => {
+    totalQuantityRef.current = getTotalQuantity();
+  }, [getTotalQuantity]);
 
-    const decrement = () => {
-        quantity > 1 && setQuantity(quantity - 1);
-    };
+  const increment = () => {
+    const maxIncrement = stock - totalQuantityRef.current;
+    maxIncrement > 0 && setQuantity((prevQuantity) => Math.min(prevQuantity + 1, maxIncrement));
+  };
 
-    const handleAddToCart = () => {
-        const adjustedQuantity = quantity < 1 ? 1 : quantity;
-        console.log({ item: { ...item }, quantity: adjustedQuantity });
-    };
+  const decrement = () => {
+    quantity > 1 && setQuantity((prevQuantity) => prevQuantity - 1);
+  };
 
-    return (
+  const handleAddToCart = () => {
+    const availableQuantity = Math.min(stock - totalQuantityRef.current, quantity);
+
+    if (availableQuantity > 0) {
+      addToCart(item, availableQuantity);
+
+      totalQuantityRef.current += availableQuantity;
+      setIsInStock(stock - totalQuantityRef.current > 0);
+
+      setQuantity(1);
+
+      onStockChange && onStockChange({ id: item.id, stock: stock - availableQuantity });
+    }
+  };
+
+  return (
+    <div className="counter">
+      {isInStock ? (
         <div>
-            <div className="counter">
-                <div className="controls">
-                    <button className="button" onClick={decrement}>
-                        -
-                    </button>
-                    <h4 className="number">{quantity}</h4>
-                    <button className="button" onClick={increment}>
-                        +
-                    </button>
-                </div>
-            </div>
-            <AddToCartButton
-                stock={`${stock}`}
-                onClick={() => onAdd(quantity)}
-                handleAddToCart={handleAddToCart}
-            />
+          <div className="controls">
+            <button className="button" onClick={decrement}>
+              -
+            </button>
+            <h4 className="number">{quantity}</h4>
+            <button className="button" onClick={increment}>
+              +
+            </button>
+          </div>
+          <AddToCartButton
+            stock={stock}
+            handleAddToCart={handleAddToCart}
+          />
         </div>
-    );
+      ) : (
+        <div className="itemOut-of-stock">
+          <i className="fa-solid fa-circle-exclamation"></i>
+          <p>No hay más stock de este producto.</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+ItemCount.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
+  stock: PropTypes.number.isRequired,
+  onStockChange: PropTypes.func,
 };
 
 export default ItemCount;

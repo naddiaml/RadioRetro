@@ -1,35 +1,38 @@
 .controls {
-    width: 70%;
-    margin: 1rem auto .5rem;
+    width: 8rem;
+    height: 2.8rem;
+    margin: 1rem auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid rgba(173, 173, 173, 0.509);
-    border-radius: .5rem;
+    border: 1px solid #adadad82;
+    border-radius: .1rem;
 }
 
 .controls button {
     width: 1.8rem;
-    height: 2rem;
+    height: 2.8rem;
     font-size: 1.2rem;
+    outline: none;
     border: none;
-    color: rgb(235, 235, 235);
-    background-color: rgb(133, 133, 133);
+    background-color: #ffffff;
+    color: #373737;
+    border: 1px solid #adadad82;
 }
 
 .controls button:hover {
-    color: rgb(86, 86, 86);
-    background-color: rgb(200, 200, 200);
-}
-
-.controls button:first-child {
-    border-radius: .3rem 0 0 .3rem;
-}
-
-.controls button:last-child {
-    border-radius: 0 .3rem .3rem 0;
+    background-color: #d1d1d180;
 }
 
 .controls h4 {
     font-family: 'Montserrat';
+}
+
+.itemOut-of-stock {
+    padding: 1.5rem;
+}
+
+.itemOut-of-stock span {
+    font-size: 1rem;
+    margin-right: 1rem;
 }

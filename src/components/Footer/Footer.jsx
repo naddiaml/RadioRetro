@@ -3,7 +3,6 @@ import './Footer.css';
 import logo from '../Footer/RadioRetro-WLogo.webp';
 
 import { Link } from 'react-router-dom';
-// routing adjustments
 
 const Footer = () => {
     return (
@@ -17,16 +16,16 @@ const Footer = () => {
                 <div className="footer__links-container">
                     <ul>
                         <li>
-                            <Link to="/store">Tienda</Link>
+                            <Link to="/tienda">Tienda</Link>
                         </li>
                         <li>
-                            <Link to="/store/transistorizadas">Transistorizadas</Link>
+                            <Link to="/tienda/transistorizadas">Transistorizadas</Link>
                         </li>
                         <li>
-                            <Link to="/store/valvulares">Valvulares</Link>
+                            <Link to="/tienda/valvulares">Valvulares</Link>
                         </li>
                         <li>
-                            <Link to="/store/portátiles">Portátiles</Link>
+                            <Link to="/tienda/portátiles">Portátiles</Link>
                         </li>
                     </ul>
                 </div>
@@ -39,16 +38,19 @@ const Footer = () => {
                             <Link to="#">Sobre Nosotros</Link>
                         </li>
                         <li>
-                            <Link to="#">Medios de pago</Link>
-                        </li>
-                        <li>
                             <Link to="#">Cómo comprar</Link>
                         </li>
                         <li>
-                            <Link to="#">Métodos de envío</Link>
+                            <Link to="#">Medios de pago</Link>
                         </li>
                         <li>
-                            <Link to="#">Contacto</Link>
+                            <Link to="#">Sobre envíos</Link>
+                        </li>
+                        <li>
+                            <Link to="#">Después de comprar</Link>
+                        </li>
+                        <li>
+                            <Link to="/contacto">Contáctanos</Link>
                         </li>
                     </ul>
                 </div>
@@ -64,6 +66,9 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
+            <div className="copy-container">
+                <span>© Copyright Radio Retro 2023  |  All rights reserved.</span>
+            </div>
         </div>
     )
 }

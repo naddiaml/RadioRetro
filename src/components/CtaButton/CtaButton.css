@@ -1,0 +1,38 @@
+.cta-button__container {
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.cta-button__container a,
+.submit-button a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cta-button,
+.submit-button {
+    width: fit-content;
+    padding: 0.8rem 1rem;
+    border-radius: 0.2rem;
+    border: none;
+    outline: none;
+    background-color: #373737;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: .75rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-button:hover,
+.submit-button:hover {
+    background-color: #555555;
+}
+
+.cta-button span>i {
+    font-size: 1.15rem;
+    margin-right: 1rem;
+}

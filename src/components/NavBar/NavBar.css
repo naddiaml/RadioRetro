@@ -8,50 +8,46 @@ ul {
     align-items: center;
 }
 
-li {
+nav>ul>li {
     display: inline-block;
     font-size: .8rem;
     letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: 400;
 }
 
-li:not(:first-child) {
-    margin-left: 1.2rem;
+nav>ul>li:not(:first-child) {
+    margin-left: 2rem;
 }
 
-li a:hover {
+nav>ul>li>a:hover {
     font-weight: 700;
-    transition: .2s;
+    color: #838383;
 }
 
-li.current a {
+nav>ul>li.current a {
     font-weight: 700;
-    color: #AEAEAE;
+    color: #5555;
 }
 
-li a,
+nav>ul>li a,
 .header__icons {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.75);
     cursor: pointer;
 }
 
-.header__icons {
-    margin-left: 2rem;
-}
-
-input {
+input#burger {
     display: none;
 }
 
 /* Para Menú hamburguesa */
 @media screen and (max-width:1100px) {
 
-    input {
+    input#burger {
         display: none;
     }
 
-    label {
+    label[for="burger"] {
         position: fixed;
         top: 2rem;
         right: 1.8rem;
@@ -60,7 +56,7 @@ input {
         z-index: 5;
     }
 
-    input+label span {
+    input#burger+label[for="burger"] span {
         position: absolute;
         width: 100%;
         height: 2px;
@@ -72,35 +68,35 @@ input {
         transition: 0.5s;
     }
 
-    input+label span:first-child {
+    input#burger+label[for="burger"] span:first-child {
         top: 3px;
     }
 
-    body input+label span:last-child {
+    body input#burger+label[for="burger"] span:last-child {
         top: 16px;
     }
 
-    label:hover {
+    label[for="burger"]:hover {
         cursor: pointer;
     }
 
-    input:checked+label span {
+    input#burger:checked+label[for="burger"] span {
         opacity: 0;
         top: 50%;
     }
 
-    input:checked+label span:first-child {
+    input#burger:checked+label[for="burger"] span:first-child {
         opacity: 1;
         transform: rotate(405deg);
     }
 
-    input:checked+label span:last-child {
+    input#burger:checked+label[for="burger"] span:last-child {
         opacity: 1;
         transform: rotate(-405deg) translate(4.5px, -4.5px);
 
     }
 
-    input~nav {
+    input#burger~nav {
         position: fixed;
         width: 100vw;
         top: 0;
@@ -110,36 +106,36 @@ input {
         transition-delay: 0.5s;
     }
 
-    input~nav>ul {
+    input#burger~nav>ul {
         position: absolute;
         top: -200px;
         transition: 0.5s;
         transition-delay: 0s;
     }
 
-    input~nav>ul>li {
+    input#burger~nav>ul>li {
         transition-delay: 0s;
     }
 
-    input~nav>ul>li,
-    input~nav>ul>div.icons-container>li>span,
-    input~nav>ul>div.icons-container>li>div {
+    input#burger~nav>ul>li,
+    input#burger~nav>ul>div.icons-container>li>span,
+    input#burger~nav>ul>div.icons-container>li>div {
         display: block;
         opacity: 0;
     }
 
-    input:checked~nav {
+    input#burger:checked~nav {
         height: 100%;
         transition-delay: 0s;
     }
 
-    input:checked~nav>ul {
+    input#burger:checked~nav>ul {
         top: 5rem;
     }
 
-    input:checked~nav>ul>li,
-    input:checked~nav>ul>div.icons-container>li>span,
-    input:checked~nav>ul>div.icons-container>li>div {
+    input#burger:checked~nav>ul>li,
+    input#burger:checked~nav>ul>div.icons-container>li>span,
+    input#burger:checked~nav>ul>div.icons-container>li>div {
         opacity: 1;
         transition-delay: 0.2s;
     }
@@ -147,19 +143,20 @@ input {
     .header-menu {
         display: block;
         background: #FFFFFF;
+        text-align: center;
         z-index: 100;
         width: 100%;
         padding-top: 50px;
         height: 100%;
+        margin-top: -1rem;
     }
 
     #topics {
         padding-bottom: 10px;
     }
 
-    .link {
-        width: -moz-fit-content;
-        display: block;
+    nav>ul>li:not(:first-child) {
+        margin-left: 2rem;
         text-align: center;
         margin: 1rem auto;
     }
@@ -172,7 +169,6 @@ input {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 20%;
-        margin: auto;
+        margin: 2rem auto 0;
     }
 }
