@@ -7,6 +7,7 @@ import Contact from './components/Contact/Contact.jsx';
 import PurchaseDetail from './components/PurchaseDetail/PurchaseDetail.jsx';
 import Checkout from './components/Checkout/Checkout.jsx';
 import OrderDetails from './components/OrderDetails/OrderDetails.jsx';
+import Info from './components/Info/Info.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 import { CartProvider } from './context/CartContext.jsx';
@@ -29,6 +30,7 @@ const App = () => {
           <Route path='/mi-carrito' element={<PurchaseDetail />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path="/orden/:orderID" element={<OrderDetails />} />
+          <Route path="/info" element={<Info />} />
 
         </Routes>
         <Footer />
