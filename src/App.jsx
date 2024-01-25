@@ -8,6 +8,12 @@ import PurchaseDetail from './components/PurchaseDetail/PurchaseDetail.jsx';
 import Checkout from './components/Checkout/Checkout.jsx';
 import OrderDetails from './components/OrderDetails/OrderDetails.jsx';
 import Info from './components/Info/Info.jsx';
+// Subpages · Info
+import AboutUs from './components/Info/AboutUs.jsx';
+import HowToBuy from './components/Info/HowToBuy.jsx';
+import PaymentMethods from './components/Info/PaymentMethods.jsx';
+import AboutShipping from './components/Info/AboutShipping.jsx';
+import AfterBuying from './components/Info/AfterBuying.jsx';
 import Footer from './components/Footer/Footer.jsx';
 
 import { CartProvider } from './context/CartContext.jsx';
@@ -31,6 +37,12 @@ const App = () => {
           <Route path='/checkout' element={<Checkout />} />
           <Route path="/orden/:orderID" element={<OrderDetails />} />
           <Route path="/info" element={<Info />} />
+          <Route path="/info/sobre-nosotros" element={<AboutUs />} />
+          <Route path="/info/como-comprar" element={<HowToBuy />} />
+          <Route path="/info/medios-de-pago" element={<PaymentMethods />} />
+          <Route path="/info/sobre-envios" element={<AboutShipping />} />
+          <Route path="/info/despues-de-comprar" element={<AfterBuying />} />
+
 
         </Routes>
         <Footer />

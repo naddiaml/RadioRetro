@@ -35,19 +35,19 @@ const Footer = () => {
                             <Link to="/info">+ Info</Link>
                         </li>
                         <li>
-                            <Link to="#">Sobre Nosotros</Link>
+                            <Link to="/info/sobre-nosotros">Sobre Nosotros</Link>
                         </li>
                         <li>
-                            <Link to="#">Cómo comprar</Link>
+                            <Link to="/info/como-comprar">Cómo comprar</Link>
                         </li>
                         <li>
-                            <Link to="#">Medios de pago</Link>
+                            <Link to="/info/medios-de-pago">Medios de pago</Link>
                         </li>
                         <li>
-                            <Link to="#">Sobre envíos</Link>
+                            <Link to="/info/sobre-envios">Sobre envíos</Link>
                         </li>
                         <li>
-                            <Link to="#">Después de comprar</Link>
+                            <Link to="/info/despues-de-comprar">Después de comprar</Link>
                         </li>
                         <li>
                             <Link to="/contacto">Contáctanos</Link>
